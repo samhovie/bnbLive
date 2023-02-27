@@ -366,7 +366,7 @@ router.delete(
         let currentStart = new Date(booking.startDate).toDateString();
         currentStart = new Date(currentStart).getTime();
 
-        if (currentStart >= today) {
+        if (currentStart <= today) {
             const err = new Error();
             err.message = `Bookings that have been started can't be deleted`;
             err.statusCode = 403;
