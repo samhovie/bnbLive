@@ -10,7 +10,11 @@ module.exports = (sequelize, DataTypes) => {
     }
     static associate(models) {
       // define association here
+      User.hasMany(models.Spot, { foreignKey: 'ownerId', onDelete: 'CASCADE',  hooks: true });
+      User.hasMany(models.Review, { foreignKey: 'userId', onDelete: 'CASCADE',  hooks: true });
+      User.hasMany(models.Booking, { foreignKey: 'userId', onDelete: 'CASCADE',  hooks: true });
     }
+
     validatePassword(password) {
       return bcrypt.compareSync(password, this.hashedPassword.toString());
     }
@@ -31,15 +35,15 @@ module.exports = (sequelize, DataTypes) => {
         return await User.scope('currentUser').findByPk(user.id);
       }
     }
-    static async signup({ username, email, password }) {
+    static async signup({ username, firstName, lastName, email, password }) {
       const hashedPassword = bcrypt.hashSync(password);
       const user = await User.create({
-        username,
         firstName,
         lastName,
+        username,
         email,
         hashedPassword
-      });
+      }, {silent: true});
       return await User.scope('currentUser').findByPk(user.id);
     }
 
@@ -93,10 +97,10 @@ module.exports = (sequelize, DataTypes) => {
       },
       scopes: {
         currentUser: {
-          attributes: { exclude: ["hashedPassword"] }
+          attributes: { exclude: ["createdAt", "hashedPassword", "updatedAt"] }
         },
         loginUser: {
-          attributes: {}
+          attributes: { exclude: [ "createdAt", "updatedAt"] }
         }
       }
     }

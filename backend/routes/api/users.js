@@ -14,13 +14,65 @@ router.post(
     '/',
     async (req, res) => {
       const { email, firstName, lastName, password, username } = req.body;
-      const user = await User.signup({ email, firstName, lastName, username, password });
 
-      await setTokenCookie(res, user);
+      const emails = await User.findAll({where: { email: email }});
+      const usernames = await User.findAll({where: { username: username }});
 
-      return res.json({
-        user: user
-      });
+      const err = new Error();
+      err.errors  = []
+
+      if(emails.length) {
+        err.message = 'User already exists'
+        err.statusCode = 403
+        err.errors.push([ "email", "User with that email already exists"])
+      }
+
+      if(usernames.length) {
+        err.message = 'User already exists'
+        err.statusCode = 403;
+        err.errors.push([ "username", "User with that username already exists"])
+      }
+
+      if(err.errors.length) {
+        err.errors = Object.fromEntries(err.errors)
+        return res.status(err.statusCode).json(err)
+    }
+
+      if(!firstName) {
+        err.message = 'Validation Error';
+        err.statusCode = 400;
+        err.errors.push(['firstName', 'First Name is required'])
+      }
+
+      if(!lastName) {
+        err.message = 'Validation Error';
+        err.statusCode = 400;
+        err.errors.push(['lastName', 'Last Name is required'])
+      }
+
+      if(!username) {
+        err.message = 'Validation Error';
+        err.statusCode = 400;
+        err.errors.push(['username', 'Username is required'])
+      }
+
+      if(!email) {
+        err.message = 'Validation Error';
+        err.statusCode = 400;
+        err.errors.push(['email', 'Invalid email'])
+      }
+
+      if(err.errors.length) {
+        err.errors = Object.fromEntries(err.errors)
+        res.status(err.statusCode).json(err)
+      }
+
+      let user = await User.signup({ firstName, lastName, email, username, password });
+
+      user.dataValues.token = setTokenCookie(res, user);
+
+      return res.status(200).json(user.dataValues);
+
     }
   );
 

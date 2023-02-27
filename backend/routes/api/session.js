@@ -1,7 +1,7 @@
 // backend/routes/api/session.js
 const express = require('express');
 
-const { setTokenCookie, restoreUser } = require('../../utils/auth');
+const { setTokenCookie, restoreUser, requireAuth } = require('../../utils/auth');
 const { User } = require('../../db/models');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
@@ -13,18 +13,29 @@ router.post(
     '/',
     async (req, res, next) => {
       const { credential, password } = req.body;
+      const err = new Error()
+      err.message = 'Validation Error'
+      err.statusCode = 400
+      err.errors = []
+
+      if (!credential) err.errors.push(['credential', 'Email or username is required'])
+      if (!password) err.errors.push(['password', 'Password is required'])
+
+      if(err.errors.length) {
+        err.errors = Object.fromEntries(err.errors)
+        return res.status(err.statusCode).json(err)
+      }
 
       const user = await User.login({ credential, password });
 
       if (!user) {
-        const err = new Error('Login failed');
-        err.status = 401;
-        err.title = 'Login failed';
-        err.errors = { credential: 'The provided credentials were invalid.' };
-        return next(err);
+        const err = new Error();
+        err.statusCode = 401;
+        err.message = 'Invalid credentials' ;
+        return res.status(err.statusCode).json(err);
       }
 
-      await setTokenCookie(res, user);
+      setTokenCookie(res, user);
 
       return res.json({
         user: user
@@ -45,13 +56,14 @@ router.delete(
 router.get(
     '/',
     restoreUser,
+    requireAuth,
     (req, res) => {
       const { user } = req;
       if (user) {
         return res.json({
           user: user.toSafeObject()
         });
-      } else return res.json({ user: null });
+      } else return res.status(200).json({ user: null });
     }
   );
 
@@ -78,14 +90,14 @@ router.post(
     if (!user) {
       const err = new Error('Login failed');
       err.status = 401;
-      err.title = 'Login failed';
-      err.errors = { credential: 'The provided credentials were invalid.' };
+      // err.title = 'Login failed';
+      err.errors = { credential: 'Invalid credentials' };
       return next(err);
     }
 
     await setTokenCookie(res, user);
 
-    return res.json({
+    return res.status(200).json({
       user: user
     });
   }
