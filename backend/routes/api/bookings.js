@@ -358,7 +358,7 @@ router.delete(
         let today = new Date().toDateString();
         today = new Date(today).getTime();
         // strip seconds
-        let currentStart = booking.startDate.toDateString();
+        let currentStart = new Date(booking.startDate).toDateString();
         currentStart = new Date(currentStart).getTime();
 
         if (currentStart >= today) {
