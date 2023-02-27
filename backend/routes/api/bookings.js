@@ -355,8 +355,13 @@ router.delete(
 
 
         // can't edit booking that's ended
-        let today = new Date().toDateString();
+        // let today = new Date().toDateString();
+        // today = new Date(today).getTime();
+
+        const start = Date.now()
+        let today = new Date(start).toDateString();
         today = new Date(today).getTime();
+
         // strip seconds
         let currentStart = new Date(booking.startDate).toDateString();
         currentStart = new Date(currentStart).getTime();
