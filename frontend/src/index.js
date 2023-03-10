@@ -26,8 +26,6 @@ if (process.env.NODE_ENV !== "production") {
   window.store = store;
 }
 
-console.log(window)
-
 
 function Root() {
   return (
