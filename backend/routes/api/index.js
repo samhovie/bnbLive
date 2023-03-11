@@ -28,7 +28,9 @@ router.use(bookingsRouter);
 router.use(imagesRouter);
 
 // router.post('/test', (req, res) => {
-//   res.json({ requestBody: req.body });
+//   console.log('hello')
+//   console.log(req.body)
+//   return res.json({ requestBody: req.body });
 // });
 
 module.exports = router;
