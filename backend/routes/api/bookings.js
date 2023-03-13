@@ -18,7 +18,6 @@ router.get(
     requireAuth,
     async (req, res) => {
 
-        // console.log('HELLO')
         const userId = req.user.id;
 
         const bookings = await Booking.findAll({
