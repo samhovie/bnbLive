@@ -28,8 +28,6 @@ router.use(bookingsRouter);
 router.use(imagesRouter);
 
 // router.post('/test', (req, res) => {
-//   console.log('hello')
-//   console.log(req.body)
 //   return res.json({ requestBody: req.body });
 // });
 

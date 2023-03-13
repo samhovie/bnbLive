@@ -19,7 +19,6 @@ router.delete(
                 include: [ 'id', 'url', 'preview', 'spotId' ]
             }
         });
-        console.log('HELLO', spotImage)
         const spot = await Spot.findByPk(spotImage.spotId);
 
         if (!spotImage) {
