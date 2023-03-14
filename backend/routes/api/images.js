@@ -8,6 +8,10 @@ const { handleValidationErrors } = require('../../utils/validation');
 
 const router = express.Router();
 
+// router.get('/', async (req, res) => {
+//     res.sendFile('/favicon.png')
+// })
+
 // get reviews of current user
 router.delete(
     '/spot-images/:imageId',
