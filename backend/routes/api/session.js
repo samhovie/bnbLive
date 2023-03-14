@@ -18,7 +18,10 @@ router.post(
       err.statusCode = 400
       err.errors = []
 
-      if (!credential) err.errors.push(['credential', 'Email or username is required'])
+      if (!credential) {
+        err.errors.push(['credential', 'Email or username is required'])
+        console.log(credential)
+      }
       if (!password) err.errors.push(['password', 'Password is required'])
 
       if(err.errors.length) {
