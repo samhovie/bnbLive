@@ -5,15 +5,22 @@ import { Redirect } from 'react-router-dom';
 import './SpotCard.css';
 
 
-function SpotCard() {
+function SpotCard({ spot }) {
     return (
         <div>
             <img></img>
+
             <div>
+                <h2></h2>
                 <p></p>
+            </div>
+
+            <div>
                 <p></p>
             </div>
 
         </div>
     );
 }
+
+export default SpotCard;

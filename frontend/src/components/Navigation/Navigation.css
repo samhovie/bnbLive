@@ -1,6 +1,18 @@
 .navigation-container {
     border: 3px solid red;
+    font-size: 32px;
+    height: 100px;
+    padding: 0 3rem;
+}
+
+.flex-ctr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-sb {
     display: flex;
     justify-content: space-between;
-    font-size: 32px;
+    align-items: center;
 }
