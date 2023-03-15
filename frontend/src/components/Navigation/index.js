@@ -32,14 +32,48 @@ function Navigation({ isLoaded }){
     );
   }
 
+  // return (
+  //   <ul>
+  //     <li>
+  //       <NavLink exact to="/">Home</NavLink>
+  //     </li>
+  //     {isLoaded && sessionLinks}
+  //   </ul>
+  // );
+
+
+
   return (
-    <ul>
+
+
+    <div className='container navigation-container'>
+
+<div>
+<i className="fa-solid fa-microphone-lines"></i>
+
+</div>
+      <div>
+      <i className="fa-solid fa-bars"></i>
+      <i className="fa-regular fa-circle-user"></i>
+      </div>
+
+
+<ul hidden={true}>
       <li>
         <NavLink exact to="/">Home</NavLink>
       </li>
       {isLoaded && sessionLinks}
     </ul>
+
+    </div>
+
+
+
+
+
   );
+
+
 }
 
 export default Navigation;
