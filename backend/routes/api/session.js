@@ -10,19 +10,25 @@ const router = express.Router();
 
 // Log in
 router.post(
+
+
     '/',
     async (req, res, next) => {
       const { credential, password } = req.body;
       const err = new Error()
-      err.message = 'Validation Error'
+      // err.message = 'Validation Error'
       err.statusCode = 400
       err.errors = []
 
       if (!credential) {
+        err.message = 'Validation Error'
         err.errors.push(['credential', 'Email or username is required'])
         console.log(credential)
       }
-      if (!password) err.errors.push(['password', 'Password is required'])
+      if (!password) {
+        err.message = 'Validation Error'
+        err.errors.push(['password', 'Password is required'])
+      }
 
       if(err.errors.length) {
         err.errors = Object.fromEntries(err.errors)
@@ -32,9 +38,12 @@ router.post(
       const user = await User.login({ credential, password });
 
       if (!user) {
-        const err = new Error();
+        // const err1 = new Error();
         err.statusCode = 401;
         err.message = 'Invalid credentials' ;
+        // console.log("YO", err1)
+        err.errors.push(['credential', 'The provided credentials were invalid'])
+        err.errors = Object.fromEntries(err.errors)
         return res.status(err.statusCode).json(err);
       }
 

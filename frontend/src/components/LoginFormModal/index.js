@@ -1,5 +1,5 @@
 // frontend/src/components/LoginFormModal/index.js
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
@@ -9,20 +9,34 @@ function LoginFormModal() {
   const dispatch = useDispatch();
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState([]);
+  const [errors, setErrors] = useState({});
   const { closeModal } = useModal();
 
-  const handleSubmit = (e) => {
+
+  useEffect(() => {
+    const errors = {};
+    if (credential && credential.length < 4) errors.name = "Username must be greater than 3 characters";
+    if (password && password.length < 6 ) errors.password = 'Password must be greater than 5 characters';
+    setErrors(errors);
+  }, [ credential, password ]);
+
+
+
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setErrors([]);
-    return dispatch(sessionActions.login({ credential, password }))
+    setErrors({});
+    return await dispatch(sessionActions.login({ credential, password }))
       .then(closeModal)
       .catch(
         async (res) => {
           const data = await res.json();
-          if (data && data.errors) setErrors(data.errors);
-        }
+          if (data && data.errors) {
+            setErrors(data.errors);}
+          }
       );
+
+
   };
 
   return (
@@ -30,7 +44,7 @@ function LoginFormModal() {
       <h1>Log In</h1>
       <form onSubmit={handleSubmit}>
         <ul>
-          {errors?.map((error, idx) => (
+          {Object.values(errors)?.map((error, idx) => (
             <li key={idx}>{error}</li>
           ))}
         </ul>
@@ -52,7 +66,14 @@ function LoginFormModal() {
             required
           />
         </label>
-        <button type="submit">Log In</button>
+        <button
+          type="submit"
+          disabled={
+            !credential ||
+            !password ||
+            errors.name ||
+            errors.password
+            }>Log In</button>
       </form>
     </>
   );
