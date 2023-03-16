@@ -8,7 +8,7 @@ import './SpotCard.css';
 function SpotCard({ spot }) {
     return (
         <div className='container card'>
-            {/* <img></img> */}
+            <img src={spot.previewImage} alt={spot.city}></img>
 
             <div>
                 <h2>{spot.city}</h2>
