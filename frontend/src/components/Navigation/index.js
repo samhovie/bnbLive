@@ -50,6 +50,7 @@ function Navigation({ isLoaded }){
       </div>
 
       <div>
+        <NavLink to={`/spots/new`}>Create a Spot</NavLink>
         <i className="fa-solid fa-bars"></i>
         <i className="fa-regular fa-circle-user"></i>
       </div>

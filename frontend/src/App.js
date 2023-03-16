@@ -6,6 +6,7 @@ import Navigation from "./components/Navigation";
 import Home from "./components/Home";
 import { Route } from "react-router";
 import SpotDetail from "./components/SpotDetail"
+import SpotForm from "./components/SpotForm"
 
 function App() {
   const dispatch = useDispatch();
@@ -22,9 +23,13 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
+          <Route exact path="/spots/new">
+            <SpotForm />
+          </Route>
           <Route path="/spots/:spotId">
             <SpotDetail />
           </Route>
+
         </Switch>
       )}
     </>
