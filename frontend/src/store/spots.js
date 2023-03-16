@@ -7,7 +7,7 @@ const normalize = (data) => data.reduce((obj,ele) => ({ ...obj, [ele.id]: ele })
 
 
 const LOAD_ALL = 'spots/all';
-// const LOAD_ONE = 'spots/one'; // detail for one spot
+const LOAD_ONE = 'spots/one'; // detail for one spot
 // const LOAD_CURRENT = 'spots/current'; // spots of current user
 // const CREATE_SPOT = 'spots/create';
 // const DELETE = 'spots/delete';
@@ -21,12 +21,12 @@ const loadAll = (spots) => {
   };
 };
 
-// const loadOne = (spot) => {
-//   return {
-//     type: LOAD_ONE,
-//     payload: spot
-//   };
-// };
+const loadOne = (spot) => {
+  return {
+    type: LOAD_ONE,
+    payload: spot
+  };
+};
 
 // const loadCurrent = (spots) => {
 //   return {
@@ -82,7 +82,15 @@ const initialState = {
 export const loadAllSpots = () => async (dispatch) => {
   const response = await csrfFetch('/api/spots');
   const data = await response.json();
-  return dispatch(loadAll(normalize(data.Spots)))
+  return dispatch(loadAll(normalize(data.Spots)));
+}
+
+export const loadOneSpot = (spotId) => async (dispatch) => {
+  const response = await csrfFetch(`/api/spots/${spotId}`);
+  const data = await response.json();
+  // data.SpotImages = normalize(data.SpotImages);
+  // console.log(data)
+  return dispatch(loadOne(data))
 }
 
 
@@ -94,10 +102,9 @@ const spotsReducer = (state = initialState, action) => {
     case LOAD_ALL:
       newState.allSpots = { ...action.payload };
       return newState;
-    // case LOAD_ONE:
-    //   // newState = Object.assign({}, state);
-    //   // newState.user = null;
-    //   return newState;
+    case LOAD_ONE:
+      newState.singleSpot = { ...action.payload };
+      return newState;
     // case LOAD_CURRENT:
     //   // newState = Object.assign({}, state);
     //   // newState.user = null;

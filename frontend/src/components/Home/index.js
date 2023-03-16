@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import * as spotActions from '../../store/spots';
 import SpotCard from '../SpotCard';
+import { NavLink } from 'react-router-dom';
 import './Home.css';
 
 function Home() {
@@ -18,7 +19,9 @@ function Home() {
     return (
         <div className='tile-list'>
           {allSpotsArray.map(spot =>
-            <SpotCard key={spot.id} spot={spot}></SpotCard>
+            <NavLink key={spot.id} to={`/spots/${spot.id}`}>
+              <SpotCard key={spot.id} spot={spot}></SpotCard>
+            </NavLink>
           )}
         </div>
     );
