@@ -24,8 +24,8 @@ function SpotForm() {
     const [ photo3, setPhoto3 ] = useState('');
     const [ photo4, setPhoto4 ] = useState('');
 
-    const lat = 0;
-    const lng = 0;
+    const lat = 1;
+    const lng = 1;
 
     const history = useHistory();
     const dispatch = useDispatch();

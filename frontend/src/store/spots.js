@@ -79,6 +79,7 @@ export const loadOneSpot = (spotId) => async (dispatch) => {
 
                              // combine?
 export const createOneSpot = (spot, images) => async (dispatch) => {
+  console.log(spot)
   const response = await csrfFetch(`/api/spots/`,
   {
     method: "POST",
@@ -92,7 +93,7 @@ export const createOneSpot = (spot, images) => async (dispatch) => {
   spotData.SpotImages = [];
 
   for (const image of images) {
-    const imageRes = await csrfFetch(`/api/spots/${spot.id}/images`, {
+    const imageRes = await csrfFetch(`/api/spots/${spotData.id}/images`, {
       method: "POST",
       headers: {
           "Content-Type": "application/json",
@@ -100,6 +101,7 @@ export const createOneSpot = (spot, images) => async (dispatch) => {
       body: JSON.stringify(image)
     });
     spotData.SpotImages.push(await imageRes.json());
+
   }
   return dispatch(createSpot(spotData));
 }

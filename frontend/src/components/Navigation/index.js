@@ -10,27 +10,27 @@ import './Navigation.css';
 function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
 
-  let sessionLinks;
-  if (sessionUser) {
-    sessionLinks = (
-      <li>
-        <ProfileButton user={sessionUser} />
-      </li>
-    );
-  } else {
-    sessionLinks = (
-      <li>
-        <OpenModalButton
-          buttonText="Log In"
-          modalComponent={<LoginFormModal />}
-        />
-        <OpenModalButton
-          buttonText="Sign Up"
-          modalComponent={<SignupFormModal />}
-        />
-      </li>
-    );
-  }
+  // let sessionLinks;
+  // if (sessionUser) {
+  //   sessionLinks = (
+  //     <li>
+  //       <ProfileButton user={sessionUser} />
+  //     </li>
+  //   );
+  // } else {
+  //   sessionLinks = (
+  //     <li>
+  //       <OpenModalButton
+  //         buttonText="Log In"
+  //         modalComponent={<LoginFormModal />}
+  //       />
+  //       <OpenModalButton
+  //         buttonText="Sign Up"
+  //         modalComponent={<SignupFormModal />}
+  //       />
+  //     </li>
+  //   );
+  // }
 
   return (
 
@@ -53,15 +53,24 @@ function Navigation({ isLoaded }){
 
       <div>
         <NavLink to={`/spots/new`}>Create a Spot</NavLink>
-        <i className="fa-solid fa-bars"></i>
-        <i className="fa-regular fa-circle-user"></i>
+        {/* <i className="fa-solid fa-bars"></i>
+        <i className="fa-regular fa-circle-user"></i> */}
+
+<ul>
+        {isLoaded && (
+          <li>
+            <ProfileButton user={sessionUser} />
+          </li>
+      )}
+      </ul>
+
       </div>
 
       <ul hidden={true}>
         <li>
           <NavLink exact to="/">Home</NavLink>
         </li>
-      {isLoaded && sessionLinks}
+      {/* {isLoaded && sessionLinks} */}
       </ul>
     </div>
 
