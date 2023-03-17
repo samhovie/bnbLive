@@ -106,6 +106,10 @@ export const createOneSpot = (spot, images) => async (dispatch) => {
   return dispatch(createSpot(spotData));
 }
 
+export const updateOneSpot = (spot, images) => async (dispatch) => {
+
+}
+
 
 
 

@@ -16,9 +16,6 @@ function SpotDetail() {
     }, [ dispatch, spotId ])
 
 
-    console.log(spot)
-
-
     return (
         <div>
             <ul>

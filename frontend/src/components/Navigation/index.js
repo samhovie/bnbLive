@@ -2,9 +2,9 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
-import OpenModalButton from '../OpenModalButton';
-import LoginFormModal from '../LoginFormModal';
-import SignupFormModal from '../SignupFormModal';
+// import OpenModalButton from '../OpenModalButton';
+// import LoginFormModal from '../LoginFormModal';
+// import SignupFormModal from '../SignupFormModal';
 import './Navigation.css';
 
 function Navigation({ isLoaded }){
@@ -51,27 +51,20 @@ function Navigation({ isLoaded }){
 
       </div>
 
-      <div>
-        <NavLink to={`/spots/new`}>Create a Spot</NavLink>
-        {/* <i className="fa-solid fa-bars"></i>
-        <i className="fa-regular fa-circle-user"></i> */}
+      <div  className='flex-ctr'>
 
-<ul>
+        <div>
+        <NavLink to={`/spots/new`}>Create a Spot</NavLink>
+
+        </div>
+
         {isLoaded && (
-          <li>
-            <ProfileButton user={sessionUser} />
-          </li>
-      )}
-      </ul>
+      <div>
+      <ProfileButton user={sessionUser} />
+      </div>
+        )}
 
       </div>
-
-      <ul hidden={true}>
-        <li>
-          <NavLink exact to="/">Home</NavLink>
-        </li>
-      {/* {isLoaded && sessionLinks} */}
-      </ul>
     </div>
 
   );
