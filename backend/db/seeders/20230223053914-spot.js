@@ -59,7 +59,7 @@ module.exports = {
         price: 445
       },
       {
-        ownerId: 1,
+        ownerId: 2,
         address: "4114 W, 4114 Vernor Hwy",
         city: "Detroit",
         state: "Michigan",
@@ -71,7 +71,7 @@ module.exports = {
         price: 725
       },
       {
-        ownerId: 1,
+        ownerId: 2,
         address: "303-319 CO-8",
         city: "Morrison",
         state: "Colorado",
@@ -83,7 +83,7 @@ module.exports = {
         price: 635
       },
       {
-        ownerId: 1,
+        ownerId: 2,
         address: "319 Frost St",
         city: "Brooklyn",
         state: "New York",
