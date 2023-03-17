@@ -39,6 +39,7 @@ function Navigation({ isLoaded }){
 
       <div className='flex-ctr'>
 
+        <NavLink to='/'>
         <div>
           <i className="fa-solid fa-microphone-lines"></i>
         </div>
@@ -46,6 +47,7 @@ function Navigation({ isLoaded }){
         <div>
           <h1>LiveBnb</h1>
         </div>
+        </NavLink>
 
       </div>
 
