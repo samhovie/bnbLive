@@ -124,7 +124,7 @@ export const updateOneSpot = (spot) => async (dispatch) => {
 }
 
 const spotsReducer = (state = initialState, action) => {
-  let newState = { ...state };
+  const newState = { ...state };
   switch (action.type) {
     case LOAD_ALL:
     case LOAD_CURRENT:
