@@ -116,7 +116,7 @@ export const updateOneSpot = (spot, images) => async (dispatch) => {
 
 
 const spotsReducer = (state = initialState, action) => {
-  let newState = {...state};
+  let newState = { ...state };
   switch (action.type) {
     case LOAD_ALL:
       newState.allSpots = { ...action.payload };

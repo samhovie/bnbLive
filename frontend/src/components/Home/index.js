@@ -8,9 +8,9 @@ import './Home.css';
 function Home() {
 
     const dispatch = useDispatch();
-    const allSpots = useSelector((state) => state.spots.allSpots);
+    // const allSpots = useSelector((state) => state.spots.allSpots);
     // combine into one line? try ^v
-    const allSpotsArray = Object.values(allSpots);
+    const spots = Object.values(useSelector((state) => state.spots.allSpots));
 
     useEffect(() => {
         dispatch(spotActions.loadAllSpots())
@@ -18,7 +18,7 @@ function Home() {
 
     return (
         <div className='tile-list'>
-          {allSpotsArray.map(spot =>
+          {spots.map(spot =>
             <NavLink key={spot.id} to={`/spots/${spot.id}`}>
               <SpotCard key={spot.id} spot={spot}></SpotCard>
             </NavLink>

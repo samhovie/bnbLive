@@ -41,7 +41,6 @@ router.post(
         // const err1 = new Error();
         err.statusCode = 401;
         err.message = 'Invalid credentials' ;
-        // console.log("YO", err1)
         err.errors.push(['credential', 'The provided credentials were invalid'])
         err.errors = Object.fromEntries(err.errors)
         return res.status(err.statusCode).json(err);
