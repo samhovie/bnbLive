@@ -1,17 +1,13 @@
 // frontend/src/store/allSpots.js
 import { csrfFetch } from './csrf';
-
-
-// PUT IN UTILS FILE
-const normalize = (data) => data.reduce((obj,ele) => ({ ...obj, [ele.id]: ele }), {});
-
+import normalize from '../utils';
 
 const LOAD_ALL = 'spots/all';
 const LOAD_ONE = 'spots/one'; // detail for one spot
-// const UPDATE = 'spots/update'
-// const LOAD_CURRENT = 'spots/current'; // spots of current user
+const UPDATE = 'spots/update'
+const LOAD_CURRENT = 'spots/current'; // spots of current user
 const CREATE_SPOT = 'spots/create_spot';
-// const DELETE = 'spots/delete';
+const DELETE = 'spots/delete';
 // const CREATE_IMAGE = 'spots/create_image'
 
 
@@ -29,12 +25,12 @@ const loadOne = (spot) => {
   };
 };
 
-// const loadCurrent = (spots) => {
-//   return {
-//     type: LOAD_CURRENT,
-//     payload: spots
-//   };
-// };
+const loadCurrent = (spots) => {
+  return {
+    type: LOAD_CURRENT,
+    payload: spots
+  };
+};
 
 const createSpot = (spot) => {
   return {
@@ -43,19 +39,19 @@ const createSpot = (spot) => {
   };
 };
 
-// const deleteSpot = (spot) => {
-//   return {
-//     type: DELETE,
-//     payload: spot
-//   };
-// };
+const deleteSpot = (spot) => {
+  return {
+    type: DELETE,
+    payload: spot
+  };
+};
 
-// const createImage = (image) => {
-//   return {
-//     type: CREATE_IMAGE,
-//     payload: image
-//   };
-// };
+const updateSpot = (spot) => {
+  return {
+    type: UPDATE,
+    payload: spot
+  };
+};
 
 const initialState = {
   allSpots: {},
@@ -106,11 +102,30 @@ export const createOneSpot = (spot, images) => async (dispatch) => {
   return dispatch(createSpot(spotData));
 }
 
-export const updateOneSpot = (spot, images) => async (dispatch) => {
-
+export const loadCurrentSpots = () => async (dispatch) => {
+  const response = await csrfFetch('/api/spots/current');
+  const data = await response.json();
+  return dispatch(loadCurrent(normalize(data.Spots)))
 }
 
 
+export const updateOneSpot = (spot) => async (dispatch) => {
+  const response = await csrfFetch(`/api/spots/${spot.id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(spot)
+  });
+  return dispatch(updateSpot(await response.json()));
+}
+
+export const deleteOneSpot = (spot) => async (dispatch) => {
+  const response = await csrfFetch(`/api/spots/${spot.id}`, {
+    method: "DELETE"
+  });
+  return dispatch(deleteSpot(await response.json()));
+}
 
 
 
@@ -119,26 +134,21 @@ const spotsReducer = (state = initialState, action) => {
   let newState = { ...state };
   switch (action.type) {
     case LOAD_ALL:
+    case LOAD_CURRENT:
       newState.allSpots = { ...action.payload };
       return newState;
     case LOAD_ONE:
       newState.singleSpot = { ...action.payload };
       return newState;
-    // case LOAD_CURRENT:
-    //   // newState = Object.assign({}, state);
-    //   // newState.user = null;
-    //   return newState;
     case CREATE_SPOT:
-      newState[action.payload.id] = { ...action.payload };
+      newState.allSpots[action.payload.id] = { ...action.payload }
       return newState;
-    // case DELETE:
-    //   // newState = Object.assign({}, state);
-    //   // newState.user = null;
-    //   return newState;
-    // case CREATE_IMAGE:
-    //   // newState = Object.assign({}, state);
-    //   // newState.user = null;
-    //   return newState;
+    case DELETE:
+      delete newState.allSpots[action.payload]
+      return newState;
+    case UPDATE:
+      newState.allSpots[action.payload.id] = { ...action.payload }
+      return newState;
     default:
       return state;
   }
