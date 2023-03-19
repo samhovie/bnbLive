@@ -24,7 +24,7 @@ function SpotCard({ spot, manage }) {
                 </div>
 
                 <div>
-                    <i class="fa-solid fa-star"></i>
+                    <i className="fa-solid fa-star"></i>
                     <p>{Boolean(spot.avgRating) ? spot.avgRating : '#.#'}</p>
                 </div>
 
