@@ -9,6 +9,7 @@ import SpotPage from "./components/SpotPage"
 import SpotForm from "./components/SpotForm"
 import ReactDOM from "react-dom";
 import PostReviewForm from "./components/PostReviewForm";
+import DeleteSpotForm from "./components/DeleteSpotForm";
 
 function ModalPortal() {
   const {modal, handleModal, modalContent} = useContext(ModalContext);
@@ -57,6 +58,10 @@ let res;
   if(type === 'post_review') {
     res = <PostReviewForm></PostReviewForm>
   }
+  else if (type === 'delete_spot') {
+    res = <DeleteSpotForm></DeleteSpotForm>
+
+  }
 
   // let res = <ComponentEx></ComponentEx>
 
@@ -83,7 +88,7 @@ function App() {
           <Switch>
             <Route exact path="/">
               <Home />
-              {/* <PostReviewForm></PostReviewForm> */}
+              {/* <DeleteSpotForm></DeleteSpotForm> */}
             </Route>
             <Route exact path="/spots/new">
               <SpotForm />

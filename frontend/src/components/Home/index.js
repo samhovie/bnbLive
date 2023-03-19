@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import * as spotActions from '../../store/spots';
 import SpotCard from '../SpotCard';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import './Home.css';
 function Home() {
 
@@ -17,12 +17,13 @@ function Home() {
 
     return (
 
+
         <div className='tile-list'>
 
           {spots.map(spot =>
-            <NavLink key={spot.id} to={`/spots/${spot.id}`}>
+            // <NavLink key={spot.id} to={`/spots/${spot.id}`}>
               <SpotCard key={spot.id} spot={spot}></SpotCard>
-            </NavLink>
+            // </NavLink>
           )}
 
         </div>
