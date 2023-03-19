@@ -4,8 +4,6 @@ import * as spotActions from '../../store/spots';
 import SpotCard from '../SpotCard';
 import { NavLink } from 'react-router-dom';
 import './Home.css';
-import { ChatModalBtn } from '../../App';
-// import { ComponentEx } from '../../App';
 function Home() {
 
     const dispatch = useDispatch();
@@ -26,7 +24,6 @@ function Home() {
               <SpotCard key={spot.id} spot={spot}></SpotCard>
             </NavLink>
           )}
-          <ChatModalBtn></ChatModalBtn>
 
         </div>
     );

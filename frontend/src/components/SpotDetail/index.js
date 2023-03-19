@@ -21,6 +21,7 @@ function SpotDetail({ firstName, description, avgStarRating, numReviews, price }
 
 
 
+
       </div>
     );
 }

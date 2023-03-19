@@ -8,6 +8,7 @@ import Home from "./components/Home";
 import SpotPage from "./components/SpotPage"
 import SpotForm from "./components/SpotForm"
 import ReactDOM from "react-dom";
+import PostReviewForm from "./components/PostReviewForm";
 
 function ModalPortal() {
   const {modal, handleModal, modalContent} = useContext(ModalContext);
@@ -46,18 +47,21 @@ const ModalProvider = ({children}) => {
 //   return (<div><h1>Hello world</h1></div>);
 // }
 
-export const ComponentY = () => {
-  return (<div><h1>YO world</h1></div>);
-}
+// export const ComponentY = () => {
+//   return (<div><h1>YO world</h1></div>);
+// }
 
 
-export const ChatModalBtn = ({ component }) => {
-
+export const ModalBtn = ({ type }) => {
+let res;
+  if(type === 'post_review') {
+    res = <PostReviewForm></PostReviewForm>
+  }
 
   // let res = <ComponentEx></ComponentEx>
 
   const {handleModal} = useContext(ModalContext);
-  return (<button onClick={() => handleModal(<ComponentY></ComponentY>)}>OPEN</button>);
+  return (<button onClick={() => handleModal(res)}>OPEN</button>);
 };
 
 
@@ -79,6 +83,7 @@ function App() {
           <Switch>
             <Route exact path="/">
               <Home />
+              {/* <PostReviewForm></PostReviewForm> */}
             </Route>
             <Route exact path="/spots/new">
               <SpotForm />

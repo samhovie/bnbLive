@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import * as spotActions from "../../store/spots";
 import * as reviewActions from "../../store/reviews";
+import { ModalBtn } from "../../App";
 
 
 function SpotPage() {
@@ -77,6 +78,8 @@ function SpotPage() {
             ></SpotDetail>
 
             {reviewTitle}
+
+            <ModalBtn type={'post_review'}></ModalBtn>
 
             <ReviewList reviews={reviews}></ReviewList>
 
