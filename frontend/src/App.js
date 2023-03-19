@@ -55,18 +55,21 @@ const ModalProvider = ({children}) => {
 
 export const ModalBtn = ({ type }) => {
 let res;
+let text;
   if(type === 'post_review') {
     res = <PostReviewForm></PostReviewForm>
+    text = 'Post Your Review';
   }
   else if (type === 'delete_spot') {
     res = <DeleteSpotForm></DeleteSpotForm>
+    text = 'Delete';
 
   }
 
   // let res = <ComponentEx></ComponentEx>
 
   const {handleModal} = useContext(ModalContext);
-  return (<button onClick={() => handleModal(res)}>OPEN</button>);
+  return (<button onClick={() => handleModal(res)}>{text}</button>);
 };
 
 
