@@ -15,7 +15,7 @@ function DeleteSpotForm() {
             <div>
             <button
                 type="submit"
-                id="yesDelRevBtn"
+                id="yesDelSpotBtn"
                 disabled={true}
                 > Yes &#40;Delete Spot&#41;
                 </button>
@@ -23,7 +23,7 @@ function DeleteSpotForm() {
             <div>
                 <button
                 type="submit"
-                id="noDelRevBtn"
+                id="noDelSpotBtn"
                 disabled={true}
                 > No &#40;Keep Spot&#41;
                 </button>
