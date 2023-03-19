@@ -1,26 +1,29 @@
-import React from "react";
-import ReviewCard from '../ReviewCard'
+import React
+// { useEffect }
+from "react";
+import {
+  useSelector,
+  // useDispatch
+} from 'react-redux';
+// import * as reviewActions from '../../store/spots';
+// import { NavLink, useParams } from 'react-router-dom';
+import ReviewCard from '../ReviewCard';
 
 function ReviewList() {
 
-    const reviews =[];
+    const reviews = Object.values(useSelector(state => state.reviews.spot));
+
 
 
     return (
         <div>
-
-        <ul>
-      {reviews.map(review =>
-
-        <li key={review.id}>
-          <ReviewCard ></ReviewCard>
-        </li>
-
-        )}
-
-        </ul>
-
-
+          <ul>
+            {reviews.map(review =>
+              <li key={review.id}>
+                <ReviewCard review={review}></ReviewCard>
+              </li>
+            )}
+          </ul>
       </div>
     )
 }

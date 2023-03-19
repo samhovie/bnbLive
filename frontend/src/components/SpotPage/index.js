@@ -18,6 +18,27 @@ function SpotPage() {
     const reviews =  Object.values(useSelector(state => state.reviews.spot));
 
 
+    let reviewTitle;
+    if (spot.numReviews > 0) {
+        const reviewPlural = spot.numReviews > 1 ? 'reviews' : 'review';
+        reviewTitle = (
+        <div>
+            <i className="fa-solid fa-star"></i>
+            <p>{spot.avgStarRating}</p>
+            <p>{spot.numReviews + ' ' + reviewPlural}</p>
+        </div>
+        );
+    } else {
+        reviewTitle = (
+        <div>
+            <i className="fa-solid fa-star"></i>
+            <p>New</p>
+        </div>
+        );
+    }
+
+
+
     // COMBINE v ?
 
     useEffect(() => {
@@ -31,7 +52,7 @@ function SpotPage() {
 
 
 
-    console.log(spot.price)
+
     return (
         <div>
 
@@ -54,6 +75,8 @@ function SpotPage() {
                 numReviews={spot.numReviews}
                 price={spot.price}
             ></SpotDetail>
+
+            {reviewTitle}
 
             <ReviewList reviews={reviews}></ReviewList>
 

@@ -36,3 +36,7 @@ a:link {
 h2 {
     color: black;
 }
+
+div {
+	border: 1px solid red;
+}
