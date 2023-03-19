@@ -4,7 +4,8 @@ import * as spotActions from '../../store/spots';
 import SpotCard from '../SpotCard';
 import { NavLink } from 'react-router-dom';
 import './Home.css';
-
+import { ChatModalBtn } from '../../App';
+// import { ComponentEx } from '../../App';
 function Home() {
 
     const dispatch = useDispatch();
@@ -17,12 +18,16 @@ function Home() {
     }, [ dispatch ]);
 
     return (
+
         <div className='tile-list'>
+
           {spots.map(spot =>
             <NavLink key={spot.id} to={`/spots/${spot.id}`}>
               <SpotCard key={spot.id} spot={spot}></SpotCard>
             </NavLink>
           )}
+          <ChatModalBtn></ChatModalBtn>
+
         </div>
     );
 }
