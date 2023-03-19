@@ -1,9 +1,12 @@
 import React,  { useEffect } from "react";
-import ImageGrid from './components/ImageGrid'
-import SpotDetail from './components/SpotDetail'
-import ReviewList from "../ReviewCard/ReviewList";
+import ImageGrid from '../ImageGrid'
+import SpotDetail from '../SpotDetail'
+import ReviewList from "../ReviewList";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import * as spotActions from "../../store/spots";
+import * as reviewActions from "../../store/reviews";
+
 
 function SpotPage() {
 
@@ -11,7 +14,7 @@ function SpotPage() {
     const { spotId } = useParams();
     const spot = useSelector((state) => state.spots.singleSpot);
 
-    const images = '';
+    // const images = '';
     const reviews =  Object.values(useSelector(state => state.reviews.spot));
 
 

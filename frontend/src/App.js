@@ -5,7 +5,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Home from "./components/Home";
 import { Route } from "react-router";
-import SpotDetail from "./components/SpotDetail"
+import SpotPage from "./components/SpotPage"
 import SpotForm from "./components/SpotForm"
 
 function App() {
@@ -27,7 +27,7 @@ function App() {
             <SpotForm />
           </Route>
           <Route path="/spots/:spotId">
-            <SpotDetail />
+            <SpotPage />
           </Route>
 
         </Switch>

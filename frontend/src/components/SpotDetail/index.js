@@ -3,6 +3,7 @@ import './SpotDetail.css';
 import ReserveButton from '../ReserveButton';
 
 function SpotDetail({ firstName, description, avgStarRating, numReviews }) {
+
     return (
       <div>
 

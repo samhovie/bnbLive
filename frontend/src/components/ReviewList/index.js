@@ -1,4 +1,5 @@
 import React from "react";
+import ReviewCard from '../ReviewCard'
 
 function ReviewList() {
 
@@ -12,7 +13,7 @@ function ReviewList() {
       {reviews.map(review =>
 
         <li key={review.id}>
-          <ReviewCard review={review}></ReviewCard>
+          <ReviewCard ></ReviewCard>
         </li>
 
         )}
