@@ -1,23 +1,40 @@
 import React from 'react';
-// import * as sessionActions from '../../store/session';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { Redirect } from 'react-router-dom';
 import './SpotCard.css';
 
 
-function SpotCard({ spot }) {
+function SpotCard({ spot, manage }) {
+
+    const manageButtons = (
+        <div>
+            {/* <smallButton />
+            <smallButton /> */}
+        </div>
+    );
+
     return (
         <div className='container card'>
-            <img src={spot.previewImage} alt={spot.name}></img>
 
             <div>
-                <h2>{spot.name}</h2>
-                <p></p>
+                <img src={spot.previewImage} alt={spot.name}></img>
             </div>
 
             <div>
-                <p></p>
+                <div>
+                    <h2>{spot.city + ', ' + spot.state}</h2>
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <p>{Boolean(spot.avgRating) ? spot.avgRating : '#.#'}</p>
+                </div>
+
             </div>
+
+            <div>
+               <p>{spot.price + ' night'}</p>
+            </div>
+
+            {manage && manageButtons}
 
         </div>
     );
