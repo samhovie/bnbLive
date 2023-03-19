@@ -78,6 +78,7 @@ function SpotForm() {
     return (
         <div>
 
+        {/* exclude, make CreateSpotPage and UpdateSpotPage outer components - similar thing w/ buttons? */}
             <div>
                 <h2>Create a New Spot</h2>
             </div>

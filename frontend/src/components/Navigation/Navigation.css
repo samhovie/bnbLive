@@ -1,8 +1,14 @@
 .navigation-container {
-    border: 3px solid red;
+    position: fixed;
+    top: 0;
+    width: 93vw;
+    padding: 1em;
+    border-top: 2px solid red;
+    border-bottom: 2px solid red;
     font-size: 32px;
     height: 100px;
     padding: 0 3rem;
+    background-color: white;
 }
 
 .flex-ctr {
@@ -16,6 +22,27 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.profile-dropdown {
+    position: fixed;
+    top: 110px;
+    right: 2rem;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid red;
+    background-color: white;
+    padding: 15px 10px;
+    font-size: 24px;
+    border-radius: 5px;
+
+}
+
+.profile-dropdown li {
+    padding: 2px 0px;
 }
 
 .hidden { display: none }
