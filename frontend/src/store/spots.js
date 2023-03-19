@@ -68,6 +68,7 @@ export const loadAllSpots = () => async (dispatch) => {
 export const loadOneSpot = (spotId) => async (dispatch) => {
   const response = await csrfFetch(`/api/spots/${spotId}`);
   const data = await response.json();
+  console.log(data)
   return dispatch(loadOne(data));
 }
 
@@ -124,7 +125,7 @@ export const updateOneSpot = (spot) => async (dispatch) => {
 }
 
 const spotsReducer = (state = initialState, action) => {
-  const newState = { ...state };
+  let newState = { ...state };
   switch (action.type) {
     case LOAD_ALL:
     case LOAD_CURRENT:

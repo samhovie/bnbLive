@@ -2,7 +2,7 @@ import React from 'react';
 import './SpotDetail.css';
 import ReserveButton from '../ReserveButton';
 
-function SpotDetail({ firstName, description, avgStarRating, numReviews }) {
+function SpotDetail({ firstName, description, avgStarRating, numReviews, price }) {
 
     return (
       <div>
@@ -15,6 +15,7 @@ function SpotDetail({ firstName, description, avgStarRating, numReviews }) {
         <ReserveButton
           avgStarRating={avgStarRating}
           numReviews={numReviews}
+          price={price}
         ></ReserveButton>
 
 

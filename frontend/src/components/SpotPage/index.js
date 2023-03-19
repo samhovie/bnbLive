@@ -31,6 +31,7 @@ function SpotPage() {
 
 
 
+    console.log(spot.price)
     return (
         <div>
 
@@ -43,6 +44,8 @@ function SpotPage() {
             </div>
 
             <ImageGrid images={spot.SpotImages}></ImageGrid>
+
+
 
             <SpotDetail
                 firstName={spot.Owner.firstName}

@@ -318,7 +318,7 @@ router.get(
             });
 
         spot.dataValues.Owner =
-            await SpotImage.findByPk(spot.ownerId);
+            await User.findByPk(spot.ownerId);
 
 
 
