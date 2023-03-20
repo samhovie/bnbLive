@@ -21,6 +21,7 @@ function Stars({ rating, setRating }) {
                 >{activeRating >= star ? solid : regular}
                 </div>
             )}
+            <p>stars</p>
         </div>
     )
 }

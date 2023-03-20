@@ -16,8 +16,8 @@ function ModalPortal() {
   return modal
     ? ReactDOM.createPortal(
       <div id="modal-container">
-	<div id="modal-overlay" onClick={() => handleModal()}></div>
-	<div id="modal-content">{modalContent}</div>
+      <div id="modal-overlay" onClick={() => handleModal()}></div>
+      <div id="modal-content">{modalContent}</div>
       </div>, document.getElementById("portal-root"))
     : null;
 };
@@ -53,11 +53,11 @@ const ModalProvider = ({children}) => {
 // }
 
 
-export const ModalBtn = ({ type }) => {
+export const ModalBtn = ({ type, spot }) => {
 let res;
 let text;
   if(type === 'post_review') {
-    res = <PostReviewForm></PostReviewForm>
+    res = <PostReviewForm spot={spot}></PostReviewForm>
     text = 'Post Your Review';
   }
   else if (type === 'delete_spot') {
@@ -107,5 +107,7 @@ function App() {
     </>
   );
 }
+
+export const useAModal = () => useContext(ModalContext);
 
 export default App;

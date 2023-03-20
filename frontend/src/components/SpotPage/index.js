@@ -39,19 +39,10 @@ function SpotPage() {
         );
     }
 
-
-
-    // COMBINE v ?
-
     useEffect(() => {
         dispatch(spotActions.loadOneSpot(spotId));
-
+        dispatch(reviewActions.loadAllReviews(spotId));
     }, [ dispatch, spotId ])
-
-    useEffect(() => {
-      dispatch(reviewActions.loadAllReviews(spotId));
-    },[ dispatch, spotId ] )
-
 
 
 
@@ -84,7 +75,7 @@ function SpotPage() {
                 sessionUser &&
                 sessionUser.id !== spot.ownerId &&
                 !reviews.find(review => review.userId === sessionUser.id) &&
-                (<ModalBtn type={'post_review'}></ModalBtn>)
+                (<ModalBtn type={'post_review'} spot={spot}></ModalBtn>)
             }
 
 
