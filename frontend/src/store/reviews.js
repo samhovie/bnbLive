@@ -34,6 +34,7 @@ const deleteReview = (id) => ({
 export const loadAllReviews = (spotId) => async (dispatch) => {
     const response = await csrfFetch(`/api/spots/${spotId}/reviews`);
     const data = await response.json();
+    console.log(data)
     return dispatch(loadAll(normalize(data.Reviews)));
 }
 

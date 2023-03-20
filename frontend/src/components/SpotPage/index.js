@@ -14,6 +14,7 @@ function SpotPage() {
     const dispatch = useDispatch();
     const { spotId } = useParams();
     const spot = useSelector((state) => state.spots.singleSpot);
+    const sessionUser = useSelector(state => state.session.user);
 
     // const images = '';
     const reviews =  Object.values(useSelector(state => state.reviews.spot));
@@ -79,7 +80,14 @@ function SpotPage() {
 
             {reviewTitle}
 
-            <ModalBtn type={'post_review'}></ModalBtn>
+            {
+                sessionUser &&
+                sessionUser.id !== spot.ownerId &&
+                !reviews.find(review => review.userId === sessionUser.id) &&
+                (<ModalBtn type={'post_review'}></ModalBtn>)
+            }
+
+
 
             <ReviewList reviews={reviews}></ReviewList>
 

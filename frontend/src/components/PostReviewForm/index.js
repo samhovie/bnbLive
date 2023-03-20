@@ -1,9 +1,22 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Stars from './Stars';
+
+
+
+
+
+
 
 function PostReviewForm({ spot }) {
 
-    const [review, setReview] = useState("");
+    const [ review, setReview ] = useState("");
+    const [ rating, setRating ] = useState(0);
+
+    useEffect(() => {
+        console.log(rating)
+    }, [rating])
+
 
     return (
         <div>
@@ -19,12 +32,15 @@ function PostReviewForm({ spot }) {
                   onChange={e=>setReview(e.target.value)}
                   cols="25"
                   rows="5"
-                  placeHolder="Leave your review here..."
+                  placeholder="Leave your review here..."
                 ></textarea>
             </div>
 
             <div>
-                {/* stars */}
+                <Stars
+                rating={rating}
+                setRating={setRating}
+                ></Stars>
             </div>
 
             <div>

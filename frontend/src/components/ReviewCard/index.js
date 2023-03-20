@@ -12,8 +12,6 @@ function ReviewCard({ review }) {
     const month = monthArr[date.getMonth() - 1];
     const year = date.getFullYear();
 
-    console.log(review.createdAt)
-
     return (
         <div>
             <h4>{review.User.firstName}</h4>

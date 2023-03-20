@@ -95,7 +95,8 @@ router.get(
                     exclude: ["reviewId", "createdAt", "updatedAt"]
                 }
             });
-            let user = await User.findByPk(spot.ownerId);
+            // let user = await User.findByPk(spot.ownerId);
+            let user = await User.findByPk(review.userId);
 
             review.dataValues.User = user;
             review.dataValues.ReviewImages = reviewImages;
