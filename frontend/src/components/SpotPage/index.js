@@ -23,6 +23,7 @@ function SpotPage() {
     let reviewTitle;
     if (spot.numReviews > 0) {
         const reviewPlural = spot.numReviews > 1 ? 'reviews' : 'review';
+        // card ?
         reviewTitle = (
         <div>
             <i className="fa-solid fa-star"></i>
@@ -49,7 +50,6 @@ function SpotPage() {
     return (
         <div>
 
-
             <div>
 
                 <h2>{spot.name}</h2>
@@ -75,6 +75,7 @@ function SpotPage() {
                 sessionUser &&
                 sessionUser.id !== spot.ownerId &&
                 !reviews.find(review => review.userId === sessionUser.id) &&
+                // this is not cool
                 (<ModalBtn type={'post_review'} spot={spot}></ModalBtn>)
             }
 

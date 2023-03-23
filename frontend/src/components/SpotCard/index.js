@@ -4,6 +4,8 @@ import './SpotCard.css';
 import { ModalBtn } from "../../App";
 import { NavLink } from 'react-router-dom';
 
+// give
+
 function SpotCard({ spot, manage }) {
 
     // const manageButtons = (

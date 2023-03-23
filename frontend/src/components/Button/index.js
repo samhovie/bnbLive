@@ -1,9 +1,9 @@
 import React from "react";
 
-function SpotList() {
+export default function Page ({ prop }) {
+
     return (
         null
-    )
-}
+    );
 
-export default SpotList;
+}
