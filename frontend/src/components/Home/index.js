@@ -7,8 +7,6 @@ import './Home.css';
 function Home() {
 
     const dispatch = useDispatch();
-    // const allSpots = useSelector((state) => state.spots.allSpots);
-    // combine into one line? try ^v
     const spots = Object.values(useSelector((state) => state.spots.allSpots));
 
     useEffect(() => {
@@ -21,9 +19,7 @@ function Home() {
         <div className='tile-list'>
 
           {spots.map(spot =>
-            // <NavLink key={spot.id} to={`/spots/${spot.id}`}>
               <SpotCard key={spot.id} spot={spot}></SpotCard>
-            // </NavLink>
           )}
 
         </div>

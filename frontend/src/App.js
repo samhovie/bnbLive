@@ -10,6 +10,7 @@ import SpotForm from "./components/SpotForm"
 import ReactDOM from "react-dom";
 import PostReviewForm from "./components/PostReviewForm";
 import DeleteSpotForm from "./components/DeleteSpotForm";
+import SpotCard from "./components/SpotCard";
 
 function ModalPortal() {
   const {modal, handleModal, modalContent} = useContext(ModalContext);
@@ -86,12 +87,10 @@ function App() {
     <>
       <ModalProvider>
         <Navigation isLoaded={isLoaded} />
-        <div className="page-container">
         {isLoaded && (
           <Switch>
             <Route exact path="/">
               <Home />
-              {/* <DeleteSpotForm></DeleteSpotForm> */}
             </Route>
             <Route exact path="/spots/new">
               <SpotForm />
@@ -99,10 +98,8 @@ function App() {
             <Route path="/spots/:spotId">
               <SpotPage />
             </Route>
-
           </Switch>
         )}
-        </div>
       </ModalProvider>
     </>
   );
