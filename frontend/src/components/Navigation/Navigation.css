@@ -18,6 +18,10 @@
     flex-direction: row;
 }
 
+.navigation-container > .flex-ctr > a {
+display: flex;
+}
+
 .flex-sb {
     display: flex;
     justify-content: space-between;

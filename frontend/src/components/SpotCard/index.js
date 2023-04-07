@@ -38,7 +38,7 @@ function SpotCard({ spot, manage }) {
                     <h2>{spot.city + ', ' + spot.state}</h2>
                 </div>
 
-                <div>
+                <div style={{display:'flex'}}>
                     <i className="fa-solid fa-star"></i>
                     <p className='avg-rating'>{Boolean(spot.avgRating) ? spot.avgRating : '#.#'}</p>
                 </div>
