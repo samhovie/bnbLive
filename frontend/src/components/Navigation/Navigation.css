@@ -3,12 +3,12 @@
     top: 0;
     width: 93vw;
     padding: 1em;
-    border-top: 2px solid red;
-    border-bottom: 2px solid red;
+    /* border-top: 2px solid red;
+    border-bottom: 2px solid red; */
     font-size: 32px;
     height: 100px;
     padding: 0 3rem;
-    background-color: white;
+    background-color: rgb(193, 193, 193);
 }
 
 .flex-ctr {

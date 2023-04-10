@@ -3,6 +3,8 @@ import React from 'react';
 
 function ReviewCard({ review }) {
 
+    if (!review.User) return null;
+
     const monthArr = ['January', 'February', 'March',
                       'April', 'May', 'June', 'July',
                       'August', 'September', 'October',

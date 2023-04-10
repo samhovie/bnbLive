@@ -78,7 +78,7 @@ export const loadCurrentSpots = () => async (dispatch) => {
 }
 
 export const createOneSpot = (spot, images) => async (dispatch) => {
-  console.log(spot)
+  // console.log(spot)
   const response = await csrfFetch(`/api/spots/`,
   {
     method: "POST",

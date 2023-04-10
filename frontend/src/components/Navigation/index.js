@@ -41,7 +41,8 @@ function Navigation({ isLoaded }){
 
         <NavLink to='/'>
         <div>
-          <i className="fa-solid fa-microphone-lines"></i>
+          {/* <i className="fa-solid fa-microphone-lines"></i> */}
+          <img style={{width:'48px', height:'48px'}} alt='logo' src="https://livebnbbucket.s3.amazonaws.com/favicon.png"></img>
         </div>
 
         <div>

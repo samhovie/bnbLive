@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import * as reviewActions from '../../store/reviews'
+import * as spotActions from '../../store/spots'
 import { useSelector } from "react-redux";
 import Stars from './Stars';
 // import { useHistory } from "react-router-dom";
@@ -38,6 +39,7 @@ function PostReviewForm({ spot }) {
         }, spot.id, user));
 
         dispatch(reviewActions.loadAllReviews(spot.id))
+        dispatch(spotActions.loadOneSpot(spot.id))
         // const data = await response.json();
         // if (data && data.errors) setErrors(data.errors);
         // history.push(`/spots/${spot.id}`);

@@ -29,7 +29,7 @@ function SpotCard({ spot, manage }) {
             <NavLink key={spot.id} to={`/spots/${spot.id}`}>
 
 
-            <div className='img container'>
+            <div className='card-img container'>
                 <img src={spot.previewImage} alt={spot.name}></img>
             </div>
 
