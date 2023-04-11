@@ -10,6 +10,7 @@ import SpotForm from "./components/SpotForm"
 import ReactDOM from "react-dom";
 import PostReviewForm from "./components/PostReviewForm";
 import DeleteSpotForm from "./components/DeleteSpotForm";
+import UpdateSpotPage from "./components/UpdateSpotPage";
 // import SpotCard from "./components/SpotCard";
 import ManageSpotsPage from './components/ManageSpotsPage'
 
@@ -67,11 +68,11 @@ let text;
     text = 'Delete';
 
   }
-  else if (type === 'update_spot') {
-    // res = <UpdateSpotForm></UpdateSpotForm>
-    text = 'Update';
+  // else if (type === 'update_spot') {
+  //   // res = <UpdateSpotForm></UpdateSpotForm>
+  //   text = 'Update';
 
-  }
+  // }
 
   // let res = <ComponentEx></ComponentEx>
 
@@ -103,6 +104,9 @@ function App() {
             </Route>
             <Route path="/spots/current">
               <ManageSpotsPage />
+            </Route>
+            <Route path="/spots/:spotId/edit">
+              <UpdateSpotPage />
             </Route>
             <Route path="/spots/:spotId">
               <SpotPage />

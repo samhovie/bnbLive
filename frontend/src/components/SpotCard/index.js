@@ -4,10 +4,12 @@ import './SpotCard.css';
 import { ModalBtn } from "../../App";
 import { NavLink } from 'react-router-dom';
 // import Card from '../Card';
+import { useHistory } from 'react-router-dom';
 
 // give
 
 function SpotCard({ spot, manage }) {
+    const history = useHistory();
 
     // const manageButtons = (
     //     <div>
@@ -52,7 +54,16 @@ function SpotCard({ spot, manage }) {
             </NavLink>
 
             {/* {manage && manageButtons} */}
-            {manage && <div style={{display:'flex'}}><ModalBtn spot={spot} type={'delete_spot'}></ModalBtn><ModalBtn type={'update_spot'}></ModalBtn></div>
+            {manage && <div style={{display:'flex'}}>
+                <ModalBtn spot={spot} type={'delete_spot'}>
+                    </ModalBtn>
+                    {/* <ModalBtn type={'update_spot'}>
+                        </ModalBtn> */}
+                        <button onClick={(e) => {
+                            e.preventDefault();
+                            history.push(`/spots/${spot.id}/edit`)
+                        }}>Update</button>
+                        </div>
             }
 
 
