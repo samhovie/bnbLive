@@ -4,6 +4,7 @@ import ReserveButton from '../ReserveButton';
 
 function SpotDetail({ firstName, description, avgStarRating, numReviews, price }) {
 
+
     return (
       <div>
 

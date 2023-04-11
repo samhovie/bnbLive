@@ -1,3 +1,20 @@
+:root {
+    /* CSS HEX */
+--rich-black: #0d1b2aff;
+--oxford-blue: #1b263bff;
+--yinmn-blue: #415a77ff;
+--silver-lake-blue: #778da9ff;
+--platinum: #e0e1ddff;
+}
+
+.navigation-container {
+    background-color: var(--yinmn-blue)
+}
+body {
+	line-height: 1;
+    background-color: var(--platinum);
+}
+
 
 
 html, body, div, span,
@@ -14,9 +31,7 @@ canvas, nav, section {
 }
 
 
-body {
-	line-height: 1;
-}
+
 ol, ul {
 	list-style: none;
 }
@@ -25,6 +40,7 @@ ol, ul {
 #root {
     display: flex;
     justify-content: center;
+
 }
 
 

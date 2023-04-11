@@ -2,9 +2,15 @@ import React from "react";
 import * as spotActions from '../../store/spots';
 import { useDispatch } from "react-redux";
 // import { useEffect } from "react";
+import { useAModal } from "../../App";
+
+// close modal after delete
+// lose rest of card after delete
+// get spots/none?
 
 function DeleteSpotForm({spot}) {
 
+    const {handleModal} = useAModal();
     const dispatch = useDispatch();
 
     return (
@@ -22,10 +28,13 @@ function DeleteSpotForm({spot}) {
             <button
                 type="submit"
                 id="yesDelSpotBtn"
-                onClick={(e) => {
+                onClick={ async (e) => {
                     e.preventDefault();
-                    dispatch(spotActions.deleteOneSpot(spot))
-                    dispatch(spotActions.loadCurrentSpots())
+                    await dispatch(spotActions.deleteOneSpot(spot))
+                    await dispatch(spotActions.loadCurrentSpots())
+
+                    // handle modal
+                    handleModal();
                 }}
                 // disabled={true}
                 > Yes &#40;Delete Spot&#41;

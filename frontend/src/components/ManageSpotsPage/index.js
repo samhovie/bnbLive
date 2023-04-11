@@ -8,7 +8,7 @@ function ManageSpotsPage() {
 
     const dispatch = useDispatch();
     const spots = Object.values(useSelector((state) => state.spots.allSpots));
-    console.log(spots)
+    // console.log(spots)
 
     useEffect(() => {
         dispatch(spotActions.loadCurrentSpots())

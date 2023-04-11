@@ -46,6 +46,7 @@ function SpotPage() {
     }, [ dispatch, spotId ])
 
 
+    if (!spot.Owner) return null;
 
     return (
         <div>
