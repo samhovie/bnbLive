@@ -1,6 +1,12 @@
 import React from "react";
+import * as spotActions from '../../store/spots';
+import { useDispatch } from "react-redux";
+// import { useEffect } from "react";
 
-function DeleteSpotForm() {
+function DeleteSpotForm({spot}) {
+
+    const dispatch = useDispatch();
+
     return (
         <div>
 
@@ -16,7 +22,12 @@ function DeleteSpotForm() {
             <button
                 type="submit"
                 id="yesDelSpotBtn"
-                disabled={true}
+                onClick={(e) => {
+                    e.preventDefault();
+                    dispatch(spotActions.deleteOneSpot(spot))
+                    dispatch(spotActions.loadCurrentSpots())
+                }}
+                // disabled={true}
                 > Yes &#40;Delete Spot&#41;
                 </button>
             </div>
@@ -24,7 +35,7 @@ function DeleteSpotForm() {
                 <button
                 type="submit"
                 id="noDelSpotBtn"
-                disabled={true}
+                // disabled={true}
                 > No &#40;Keep Spot&#41;
                 </button>
             </div>

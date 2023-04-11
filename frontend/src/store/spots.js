@@ -53,10 +53,10 @@ const updateSpot = (spot) => {
 
 const initialState = {
   allSpots: {},
-  singleSpot: {
-    Owner: {},
-    SpotImages: []
-  }
+  singleSpot: {}
+    // Owner: {},
+    // SpotImages: []
+  // }
 }
 
 export const loadAllSpots = () => async (dispatch) => {
@@ -127,8 +127,10 @@ const spotsReducer = (state = initialState, action) => {
   let newState = { ...state };
   switch (action.type) {
     case LOAD_ALL:
-    case LOAD_CURRENT:
       newState.allSpots = { ...action.payload };
+      return newState;
+    case LOAD_CURRENT:
+      newState = { ...state, allSpots: {...action.payload }, singleSpot: {}};
       return newState;
     case LOAD_ONE:
       newState.singleSpot = { ...action.payload };

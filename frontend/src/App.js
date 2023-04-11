@@ -63,8 +63,13 @@ let text;
     text = 'Post Your Review';
   }
   else if (type === 'delete_spot') {
-    res = <DeleteSpotForm></DeleteSpotForm>
+    res = <DeleteSpotForm spot={spot}></DeleteSpotForm>
     text = 'Delete';
+
+  }
+  else if (type === 'update_spot') {
+    // res = <UpdateSpotForm></UpdateSpotForm>
+    text = 'Update';
 
   }
 
@@ -96,12 +101,13 @@ function App() {
             <Route exact path="/spots/new">
               <SpotForm />
             </Route>
-            <Route path="/spots/:spotId">
-              <SpotPage />
-            </Route>
             <Route path="/spots/current">
               <ManageSpotsPage />
             </Route>
+            <Route path="/spots/:spotId">
+              <SpotPage />
+            </Route>
+
           </Switch>
         )}
       </ModalProvider>

@@ -3,7 +3,7 @@ import './SpotCard.css';
 // import DeleteSpotForm from '../DeleteSpotForm';
 import { ModalBtn } from "../../App";
 import { NavLink } from 'react-router-dom';
-import Card from '../Card';
+// import Card from '../Card';
 
 // give
 
@@ -52,7 +52,8 @@ function SpotCard({ spot, manage }) {
             </NavLink>
 
             {/* {manage && manageButtons} */}
-            {/* <ModalBtn type={'delete_spot'}></ModalBtn> */}
+            {manage && <div style={{display:'flex'}}><ModalBtn spot={spot} type={'delete_spot'}></ModalBtn><ModalBtn type={'update_spot'}></ModalBtn></div>
+            }
 
 
         </div>

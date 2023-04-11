@@ -46,7 +46,7 @@ function Navigation({ isLoaded }){
         </div>
 
         <div>
-          <h1>LiveBnb</h1>
+          <h1>bnbLive</h1>
         </div>
         </NavLink>
 
