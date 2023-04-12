@@ -9,13 +9,13 @@ import './SpotForm.css';
 
 function SpotForm({action, values}) {
 
-    const [ country, setCountry ] = useState('');
-    const [ address, setAddress ] = useState('');
-    const [ city, setCity ] = useState('');
-    const [ state, setState ] = useState('');
-    const [ description, setDescription ] = useState('');
-    const [ name, setName ] = useState('');
-    const [ price, setPrice ] = useState();
+    const [ country, setCountry ] = useState(values ? values.country : '')
+    const [ address, setAddress ] = useState(values ? values.address : '');
+    const [ city, setCity ] = useState(values ? values.city : '');
+    const [ state, setState ] = useState(values ? values.state : '');
+    const [ description, setDescription ] = useState(values ? values.description : '');
+    const [ name, setName ] = useState(values ? values.name : '');
+    const [ price, setPrice ] = useState(values ? values.price : '');
     const [ preview, setPreview ] = useState('');
     // const [ lat, setLat ] = useState(0);
     // const [ lng, setLng ] = useState(0);
@@ -98,7 +98,7 @@ function SpotForm({action, values}) {
                             type="text"
                             onChange={(e) => setCountry(e.target.value)}
                             value={country}
-                            placeholder={ values ? values.country : "Country"}
+                            placeholder={ !values ? values.country : "Country"}
                         />
                     </div>
 
