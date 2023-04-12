@@ -109,7 +109,7 @@ function SpotForm({action, values}) {
                             type="text"
                             onChange={(e) => setAddress(e.target.value)}
                             value={address}
-                            placeholder="Address"
+                            placeholder={ values ? values.address : "Address"}
                         />
                     </div>
 
@@ -120,7 +120,7 @@ function SpotForm({action, values}) {
                             type="text"
                             onChange={(e) => setCity(e.target.value)}
                             value={city}
-                            placeholder="City"
+                            placeholder={ values ? values.city : "City"}
                         />
                     </div>
 
@@ -131,20 +131,20 @@ function SpotForm({action, values}) {
                             type="text"
                             onChange={(e) => setState(e.target.value)}
                             value={state}
-                            placeholder="State"
+                            placeholder={ values ? values.state : "State"}
                         />
                     </div>
 
-                    <div>
+                    {/* <div>
                         <label htmlFor="country">Country:</label>
                         <input
                             id="country"
                             type="text"
                             onChange={(e) => setCountry(e.target.value)}
                             value={country}
-                            placeholder="Country"
+                            placeholder={ values ? values.country : "Country"}
                         />
-                    </div>
+                    </div> */}
 
                     <div>
                         <h3>Describe your place to guests</h3>
@@ -159,7 +159,7 @@ function SpotForm({action, values}) {
                         type="text"
                         onChange={(e) => setDescription(e.target.value)}
                         value={description}
-                        placeholder="Description"
+                        placeholder={ values ? values.description : "Description"}
                     />
 
                     <h3>Create a title for your spot</h3>
@@ -171,7 +171,7 @@ function SpotForm({action, values}) {
                         type="text"
                         onChange={(e) => setName(e.target.value)}
                         value={name}
-                        placeholder="Name of your spot"
+                        placeholder={ values ? values.name : "Name of your spot"}
                     />
 
                     <h3>CSet a base price for your spot</h3>
@@ -184,7 +184,7 @@ function SpotForm({action, values}) {
                         type="text"
                         onChange={(e) => setPrice(e.target.value)}
                         value={price}
-                        placeholder="Price per night (USD)"
+                        placeholder={ values ? values.price : "Price per night (USD)"}
                     />
 
 
