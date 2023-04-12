@@ -12,6 +12,7 @@ import ReactDOM from "react-dom";
 import PostReviewForm from "./components/PostReviewForm";
 import DeleteSpotForm from "./components/DeleteSpotForm";
 import UpdateSpotPage from "./components/UpdateSpotPage";
+import DeleteReviewForm from "./components/DeleteReviewForm";
 // import SpotCard from "./components/SpotCard";
 import ManageSpotsPage from './components/ManageSpotsPage'
 
@@ -57,7 +58,7 @@ const ModalProvider = ({children}) => {
 // }
 
 
-export const ModalBtn = ({ type, spot }) => {
+export const ModalBtn = ({ type, spot, review }) => {
 let res;
 let text;
   if(type === 'post_review') {
@@ -69,11 +70,11 @@ let text;
     text = 'Delete';
 
   }
-  // else if (type === 'update_spot') {
-  //   // res = <UpdateSpotForm></UpdateSpotForm>
-  //   text = 'Update';
+  else if (type === 'delete_review') {
+    res = <DeleteReviewForm review={review}></DeleteReviewForm>
+    text = 'Delete';
 
-  // }
+  }
 
   // let res = <ComponentEx></ComponentEx>
 

@@ -1,8 +1,11 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { ModalBtn } from "../../App";
 
 
 function ReviewCard({ review }) {
 
+    const sessionUser = useSelector(state => state.session.user);
     if (!review.User) return null;
 
     const monthArr = ['January', 'February', 'March',
@@ -19,6 +22,11 @@ function ReviewCard({ review }) {
             <h4>{review.User.firstName}</h4>
             <h5>{month + ' ' + year}</h5>
             <p>{review.review}</p>
+            { sessionUser && review.userId === sessionUser.id &&
+            (
+                <ModalBtn type='delete_review' review={review}/>
+            )
+          }
         </div>
     );
 

@@ -1,6 +1,12 @@
 import React from "react";
+import { useAModal } from "../../App";
+import { useDispatch } from "react-redux";
+import * as reviewActions from '../../store/reviews'
+import { loadOneSpot } from "../../store/spots";
 
-function DeleteReviewForm() {
+function DeleteReviewForm({ review }) {
+    const {handleModal} = useAModal();
+    const dispatch = useDispatch();
     return (
         <div>
 
@@ -16,7 +22,13 @@ function DeleteReviewForm() {
             <button
                 type="submit"
                 id="yesDelRevBtn"
-                disabled={true}
+                // disabled={}
+                onClick={(e) => {
+                    dispatch(reviewActions.deleteOneReview(review.id))
+                    dispatch(reviewActions.loadAllReviews(review.spotId));
+                    dispatch(loadOneSpot(review.spotId))
+                    handleModal();
+                }}
                 > Yes &#40;Delete Review&#41;
                 </button>
             </div>
@@ -24,7 +36,12 @@ function DeleteReviewForm() {
                 <button
                 type="submit"
                 id="noDelRevBtn"
-                disabled={true}
+                // disabled={true}
+                onClick={(e) => {
+                    e.preventDefault();
+                    handleModal();
+
+                }}
                 > No &#40;Keep Review&#41;
                 </button>
             </div>
