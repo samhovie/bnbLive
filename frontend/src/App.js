@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { Switch } from "react-router-dom";
 import { Route } from "react-router";
 import * as sessionActions from "./store/session";
+import * as spotActions from "./store/spots";
 import Navigation from "./components/Navigation";
 import Home from "./components/Home";
 import SpotPage from "./components/SpotPage"
@@ -100,7 +101,7 @@ function App() {
               <Home />
             </Route>
             <Route exact path="/spots/new">
-              <SpotForm />
+              <SpotForm action={spotActions.createOneSpot}/>
             </Route>
             <Route path="/spots/current">
               <ManageSpotsPage />

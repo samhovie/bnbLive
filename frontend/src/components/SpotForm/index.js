@@ -3,11 +3,11 @@ import React, { useState,
  } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import * as spotActions from '../../store/spots';
+
 
 import './SpotForm.css';
 
-function SpotForm() {
+function SpotForm({action}) {
 
     const [ country, setCountry ] = useState('');
     const [ address, setAddress ] = useState('');
@@ -57,8 +57,8 @@ function SpotForm() {
             }
         }
 
-
-        const spot = await dispatch(spotActions.createOneSpot({
+        // spotActions.createOneSpot
+        const spot = await dispatch(action({
             country,
             address,
             city,
@@ -80,7 +80,7 @@ function SpotForm() {
 
         {/* exclude, make CreateSpotPage and UpdateSpotPage outer components - similar thing w/ buttons? */}
             <div>
-                <h2>Create a New Spot</h2>
+                {/* <h2>Create a New Spot</h2> */}
             </div>
 
             <form onSubmit={onSubmit}>

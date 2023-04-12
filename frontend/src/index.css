@@ -5,6 +5,13 @@
 --yinmn-blue: #415a77ff;
 --silver-lake-blue: #778da9ff;
 --platinum: #e0e1ddff;
+
+
+--light-cyan: #e0fbfcff;
+--light-blue: #c2dfe3ff;
+--cadet-gray: #9db4c0ff;
+--paynes-gray: #5c6b73ff;
+--gunmetal: #253237ff;
 }
 
 .navigation-container {
@@ -40,6 +47,7 @@ ol, ul {
 #root {
     display: flex;
     justify-content: center;
+    padding-top: 100px;
 
 }
 

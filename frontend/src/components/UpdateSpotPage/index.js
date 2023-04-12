@@ -1,10 +1,12 @@
 import React from "react";
+import SpotForm from "../SpotForm";
+import * as spotActions from '../../store/spots';
 
 export default function UpdateSpotPage () {
 
 
     return (
-        <h1>Hello</h1>
+        <SpotForm action={spotActions.updateOneSpot}/>
     );
 
 }
