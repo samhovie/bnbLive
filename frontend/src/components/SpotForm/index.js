@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 
 import './SpotForm.css';
 
-function SpotForm({action}) {
+function SpotForm({action, values}) {
 
     const [ country, setCountry ] = useState('');
     const [ address, setAddress ] = useState('');
@@ -98,7 +98,7 @@ function SpotForm({action}) {
                             type="text"
                             onChange={(e) => setCountry(e.target.value)}
                             value={country}
-                            placeholder="Country"
+                            placeholder={ values ? values.country : "Country"}
                         />
                     </div>
 
