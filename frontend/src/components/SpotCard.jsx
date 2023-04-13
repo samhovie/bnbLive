@@ -1,5 +1,5 @@
 import React from 'react';
-import { ModalBtn } from "../../App";
+import { ModalBtn } from "../App";
 import { NavLink } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 

@@ -1,11 +1,11 @@
 import React,  { useEffect } from "react";
-import ReviewList from "../ReviewList";
+import ReviewList from "./ReviewList";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import * as spotActions from "../../store/spots";
-import * as reviewActions from "../../store/reviews";
-import { ModalBtn } from "../../App";
-import ReserveButton from '../ReserveButton';
+import * as spotActions from "../store/spots";
+import * as reviewActions from "../store/reviews";
+import { ModalBtn } from "../App";
+import ReserveButton from './ReserveButton';
 
 
 

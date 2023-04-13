@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import * as spotActions from '../../store/spots';
-import SpotCard from '../SpotCard';
-import CardList from '../CardList';
+import * as spotActions from '../store/spots';
+import SpotCard from './SpotCard';
+import CardList from './CardList';
 
 function HomePage() {
 

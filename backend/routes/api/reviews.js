@@ -79,8 +79,6 @@ router.get(
     '/spots/:spotId/reviews',
     async (req, res) => {
 
-        console.log("HELLO")
-
         let spotId = req.params.spotId;
         let spot = await Spot.findByPk(spotId)
 

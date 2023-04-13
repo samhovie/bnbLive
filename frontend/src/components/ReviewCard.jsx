@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { ModalBtn } from "../../App";
+import { ModalBtn } from "../App";
 
 
 function ReviewCard({ review }) {

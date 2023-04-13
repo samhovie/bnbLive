@@ -23,7 +23,6 @@ router.post(
       if (!credential) {
         err.message = 'Validation Error'
         err.errors.push(['credential', 'Email or username is required'])
-        console.log(credential)
       }
       if (!password) {
         err.message = 'Validation Error'

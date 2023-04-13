@@ -1,8 +1,8 @@
 import React from "react";
-import { useAModal } from "../../App";
+import { useAModal } from "../App";
 import { useDispatch } from "react-redux";
-import * as reviewActions from '../../store/reviews'
-import { loadOneSpot } from "../../store/spots";
+import * as reviewActions from '../store/reviews'
+import { loadOneSpot } from "../store/spots";
 
 function DeleteReviewForm({ review }) {
     const {handleModal} = useAModal();

@@ -92,7 +92,7 @@ function SpotForm({action, values}) {
                             type="text"
                             onChange={(e) => setCountry(e.target.value)}
                             value={country}
-                            placeholder={ !values ? values.country : "Country"}
+                            placeholder={ values ? values.country : "Country"}
                         />
                     </div>
 

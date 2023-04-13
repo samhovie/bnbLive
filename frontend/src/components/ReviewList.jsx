@@ -7,7 +7,7 @@ import {
 } from 'react-redux';
 // import * as reviewActions from '../../store/spots';
 // import { NavLink, useParams } from 'react-router-dom';
-import ReviewCard from '../ReviewCard';
+import ReviewCard from "./ReviewCard";
 
 function ReviewList() {
 

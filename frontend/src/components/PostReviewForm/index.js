@@ -45,7 +45,6 @@ function PostReviewForm({ spot }) {
         // history.push(`/spots/${spot.id}`);
 
         handleModal();
-        // console.log(modalContent)
 
         // return history.push(`/spots/${spot.id}`);
 

@@ -1,8 +1,8 @@
 import React from "react";
-import * as spotActions from '../../store/spots';
+import * as spotActions from '../store/spots';
 import { useDispatch } from "react-redux";
 // import { useEffect } from "react";
-import { useAModal } from "../../App";
+import { useAModal } from "../App";
 
 // close modal after delete
 // lose rest of card after delete
