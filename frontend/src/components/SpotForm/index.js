@@ -29,11 +29,6 @@ function SpotForm({action, values}) {
 
     const history = useHistory();
     const dispatch = useDispatch();
-    // const [ errors, setValidationErrors ] = useState({});
-
-    // useEffect(() => {
-
-    // }, [])
 
 
     const onSubmit = async (e) => {

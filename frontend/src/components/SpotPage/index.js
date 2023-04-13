@@ -1,12 +1,13 @@
 import React,  { useEffect } from "react";
 import ImageGrid from '../ImageGrid'
-import SpotDetail from '../SpotDetail'
 import ReviewList from "../ReviewList";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import * as spotActions from "../../store/spots";
 import * as reviewActions from "../../store/reviews";
 import { ModalBtn } from "../../App";
+import ReserveButton from '../ReserveButton';
+
 
 
 function SpotPage() {
@@ -60,15 +61,24 @@ function SpotPage() {
 
             <ImageGrid images={spot.SpotImages}></ImageGrid>
 
+<div>
+
+<div>
+  <h4>{'Hosted by ' + spot.Owner.firstName}</h4>
+  <p>{spot.description}</p>
+</div>
+
+<ReserveButton
+  avgStarRating={spot.avgStarRating}
+  numReviews={spot.numReviews}
+  price={spot.price}
+></ReserveButton>
 
 
-            <SpotDetail
-                firstName={spot.Owner.firstName}
-                description={spot.description}
-                avgStarRating={spot.avgStarRating}
-                numReviews={spot.numReviews}
-                price={spot.price}
-            ></SpotDetail>
+
+
+
+</div>
 
             {reviewTitle}
 
