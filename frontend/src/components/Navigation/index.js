@@ -35,24 +35,24 @@ function Navigation({ isLoaded }){
   return (
 
 
-    <div className='container navigation-container flex-sb'>
+    <div className=' navigation-container flex-sb'>
 
-      <div className='flex-ctr'>
+      <div className='nav-item flex-ctr'>
 
         <NavLink to='/'>
         <div>
           {/* <i className="fa-solid fa-microphone-lines"></i> */}
-          <img style={{width:'48px', height:'48px'}} alt='logo' src="https://livebnbbucket.s3.amazonaws.com/favicon.png"></img>
+          <img style={{width:'48px', height:'48px'}} className='flex-ctr' alt='logo' src="https://livebnbbucket.s3.amazonaws.com/favicon.png"></img>
         </div>
 
-        <div>
+        <div className='flex-ctr'>
           <h1>bnbLive</h1>
         </div>
         </NavLink>
 
       </div>
 
-      <div  className='flex-ctr'>
+      <div  className='nav-item flex-ctr'>
 
         <div>
         <NavLink to={`/spots/new`}>Create a Spot</NavLink>

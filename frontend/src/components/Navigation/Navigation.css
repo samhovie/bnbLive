@@ -1,12 +1,13 @@
 .navigation-container {
     position: fixed;
     top: 0;
-    width: 93vw;
-    padding: 1em;
+    width: 100%;
     font-size: 32px;
-    height: 100px;
-    padding: 0 3rem;
+    height: 110px;
 
+}
+.nav-item {
+    padding: 0 40px;
 }
 
 .flex-ctr {
@@ -18,6 +19,8 @@
 
 .navigation-container > .flex-ctr > a {
 display: flex;
+justify-content: space-between;
+    width: 170px;
 }
 
 .flex-sb {
@@ -25,6 +28,8 @@ display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
+
 
 .profile-dropdown {
     position: fixed;
