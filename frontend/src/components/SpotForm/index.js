@@ -5,7 +5,6 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 
-import './SpotForm.css';
 
 function SpotForm({action, values}) {
 

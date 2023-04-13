@@ -1,5 +1,4 @@
 import React,  { useEffect } from "react";
-import ImageGrid from '../ImageGrid'
 import ReviewList from "../ReviewList";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -59,7 +58,7 @@ function SpotPage() {
 
             </div>
 
-            <ImageGrid images={spot.SpotImages}></ImageGrid>
+            {/* <ImageGrid images={spot.SpotImages}></ImageGrid> */}
 
 <div>
 

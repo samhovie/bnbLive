@@ -1,9 +1,6 @@
 import React from 'react';
-import './SpotCard.css';
-// import DeleteSpotForm from '../DeleteSpotForm';
 import { ModalBtn } from "../../App";
 import { NavLink } from 'react-router-dom';
-// import Card from '../Card';
 import { useHistory } from 'react-router-dom';
 
 // give
