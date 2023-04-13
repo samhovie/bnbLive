@@ -37,6 +37,9 @@ canvas, nav, section {
 	vertical-align: baseline;
 }
 
+.page {
+    padding-top: 120px;
+}
 
 
 ol, ul {

@@ -19,7 +19,7 @@ export default function UpdateSpotPage () {
 
 
     return (
-        <SpotForm values={values[spotId]} action={spotActions.updateOneSpot}/>
+        <SpotForm type='update' values={values[spotId]} action={spotActions.updateOneSpot}/>
     );
 
 }

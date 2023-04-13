@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 
 
 
-function SpotForm({action, values}) {
+function SpotForm({type, action, values}) {
 
     const [ country, setCountry ] = useState(values ? values.country : '')
     const [ address, setAddress ] = useState(values ? values.address : '');
@@ -70,11 +70,11 @@ function SpotForm({action, values}) {
 
 
     return (
-        <div>
+        <div className='page'>
 
         {/* exclude, make CreateSpotPage and UpdateSpotPage outer components - similar thing w/ buttons? */}
             <div>
-                {/* <h2>Create a New Spot</h2> */}
+                <h2>{type === 'create' ? 'Create a New Spot' : 'Update your Spot'}</h2>
             </div>
 
             <form onSubmit={onSubmit}>
@@ -230,7 +230,7 @@ function SpotForm({action, values}) {
                     />
 
                 </div>
-                <button>Create Spot</button>
+                <button>{type === 'create' ? 'Create Spot' : 'Update Spot'}</button>
 
             </form>
 
