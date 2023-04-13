@@ -1,15 +1,12 @@
 import React from "react";
 
-export default function Card ({ items, CardRef }) {
-
-    // const component = ()
-
+export default function CardList ({ items, CardRef }) {
 
     return (
-        // {component}
+
         <div className="tile-list">
         {items.map(item =>
-            <CardRef  key={item.id} item={item}></CardRef>
+            <CardRef  key={item.id} item={item}/>
         )}
     </div>
     );
