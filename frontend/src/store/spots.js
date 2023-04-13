@@ -78,7 +78,9 @@ export const loadCurrentSpots = () => async (dispatch) => {
   return dispatch(loadCurrent(normalize(data.Spots)));
 }
 
-export const createOneSpot = (spot, images) => async (dispatch) => {
+// export const createOneSpot = (spot, images) => async (dispatch) => {
+export const createOneSpot = ({spot, images}) => async (dispatch) => {
+  console.log(spot)
   const response = await csrfFetch(`/api/spots/`,
   {
     method: "POST",
@@ -112,7 +114,7 @@ export const deleteOneSpot = (spot) => async (dispatch) => {
   return dispatch(deleteSpot(await response.json()));
 }
 
-export const updateOneSpot = (spot, spotId) => async (dispatch) => {
+export const updateOneSpot = ({spot, spotId}) => async (dispatch) => {
   const response = await csrfFetch(`/api/spots/${spotId}`, {
     method: 'PUT',
     headers: {

@@ -33,12 +33,12 @@ function SpotForm({ type, action, values }) {
         e.preventDefault();
 
         const photos = [photo1, photo2, photo2, photo4];
-        const spotImages = [];
-
-        spotImages.push({
-            url: preview,
-            preview: true,
-        });
+        const spotImages = [
+            {
+                url: preview,
+                preview: true,
+            },
+        ];
 
         for (let photo of photos) {
             if (photo) {
@@ -49,40 +49,9 @@ function SpotForm({ type, action, values }) {
             }
         }
 
-        // spotActions.createOneSpot
-        // const spot = await dispatch(action({
-        //     country,
-        //     address,
-        //     city,
-        //     state,
-        //     description,
-        //     price,
-        //     lat,
-        //     lng,
-        //     name
-        // }, spotImages));
-
-        let spot;
-        if (type === "create") {
-            spot = await dispatch(
-                action(
-                    {
-                        country,
-                        address,
-                        city,
-                        state,
-                        description,
-                        price,
-                        lat,
-                        lng,
-                        name,
-                    },
-                    spotImages
-                )
-            );
-        } else {
-            spot = await dispatch(
-                action({
+        const spot = await dispatch(
+            action({
+                spot: {
                     country,
                     address,
                     city,
@@ -92,11 +61,13 @@ function SpotForm({ type, action, values }) {
                     lat,
                     lng,
                     name,
-                }, spotId)
-            ); // ADD spot images to update
-        }
+                },
+                images: spotImages,
+                spotId,
+            })
+        );
 
-        return spot && history.push(`/spots/${spotId}`);
+        return spot && history.push(`/spots/${spot.payload.id}`);
     };
 
     return (
@@ -163,17 +134,6 @@ function SpotForm({ type, action, values }) {
                             placeholder={values ? values.state : "State"}
                         />
                     </div>
-
-                    {/* <div>
-                        <label htmlFor="country">Country:</label>
-                        <input
-                            id="country"
-                            type="text"
-                            onChange={(e) => setCountry(e.target.value)}
-                            value={country}
-                            placeholder={ values ? values.country : "Country"}
-                        />
-                    </div> */}
 
                     <div>
                         <h3>Describe your place to guests</h3>
