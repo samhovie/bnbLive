@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import * as spotActions from '../../store/spots';
 import SpotCard from '../SpotCard';
-import Card from '../Card';
+import CardList from '../CardList';
 
 function HomePage() {
 
@@ -14,7 +14,7 @@ function HomePage() {
     }, [ dispatch ]);
 
     return (
-        <Card items={spots} CardRef={SpotCard}></Card>
+        <CardList items={spots} CardRef={SpotCard} />
     );
 }
 
