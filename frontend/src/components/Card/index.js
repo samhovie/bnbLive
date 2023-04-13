@@ -1,18 +1,17 @@
 import React from "react";
 
-export default function Card ({ items }) {
+export default function Card ({ items, CardRef }) {
 
-    const component = (<div>
-        {items.map(item =>
-            <div>
-                {item}
-            </div>
-        )}
-    </div>)
+    // const component = ()
 
 
     return (
-        {component}
+        // {component}
+        <div className="tile-list">
+        {items.map(item =>
+            <CardRef  key={item.id} item={item}></CardRef>
+        )}
+    </div>
     );
 
 }

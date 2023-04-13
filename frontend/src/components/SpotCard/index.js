@@ -8,7 +8,7 @@ import { useHistory } from 'react-router-dom';
 
 // give
 
-function SpotCard({ spot, manage }) {
+function SpotCard({ item, manage }) {
     const history = useHistory();
 
     // const manageButtons = (
@@ -28,40 +28,40 @@ function SpotCard({ spot, manage }) {
     return (
         <div className='container card'>
 
-            <NavLink key={spot.id} to={`/spots/${spot.id}`}>
+            <NavLink key={item.id} to={`/spots/${item.id}`}>
 
 
             <div className='card-img container'>
-                <img src={spot.previewImage} alt={spot.name}></img>
+                <img src={item.previewImage} alt={item.name}></img>
             </div>
 
             <div>
                 <div>
-                    <h2>{spot.city + ', ' + spot.state}</h2>
+                    <h2>{item.city + ', ' + item.state}</h2>
                 </div>
 
                 <div style={{display:'flex'}}>
                     <i className="fa-solid fa-star"></i>
-                    <p className='avg-rating'>{Boolean(spot.avgRating) ? spot.avgRating : '#.#'}</p>
+                    <p className='avg-rating'>{Boolean(item.avgRating) ? item.avgRating : '#.#'}</p>
                 </div>
 
             </div>
 
             <div>
-               <p>{spot.price + ' night'}</p>
+               <p>{item.price + ' night'}</p>
             </div>
 
             </NavLink>
 
             {/* {manage && manageButtons} */}
             {manage && <div style={{display:'flex'}}>
-                <ModalBtn spot={spot} type={'delete_spot'}>
+                <ModalBtn spot={item} type={'delete_spot'}>
                     </ModalBtn>
                     {/* <ModalBtn type={'update_spot'}>
                         </ModalBtn> */}
                         <button onClick={(e) => {
                             e.preventDefault();
-                            history.push(`/spots/${spot.id}/edit`)
+                            history.push(`/spots/${item.id}/edit`)
                         }}>Update</button>
                         </div>
             }

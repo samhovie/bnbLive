@@ -5,7 +5,7 @@ import { Route } from "react-router";
 import * as sessionActions from "./store/session";
 import * as spotActions from "./store/spots";
 import Navigation from "./components/Navigation";
-import Home from "./components/Home";
+import HomePage from "./components/HomePage";
 import SpotPage from "./components/SpotPage"
 import SpotForm from "./components/SpotForm"
 import ReactDOM from "react-dom";
@@ -99,7 +99,7 @@ function App() {
         {isLoaded && (
           <Switch>
             <Route exact path="/">
-              <Home />
+              <HomePage />
             </Route>
             <Route exact path="/spots/new">
               <SpotForm action={spotActions.createOneSpot}/>

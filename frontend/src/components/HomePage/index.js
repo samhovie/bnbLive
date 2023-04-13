@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import * as spotActions from '../../store/spots';
 import SpotCard from '../SpotCard';
-// import { NavLink } from 'react-router-dom';
-import './Home.css';
-function Home() {
+import Card from '../Card';
+
+function HomePage() {
 
     const dispatch = useDispatch();
     const spots = Object.values(useSelector((state) => state.spots.allSpots));
@@ -14,17 +14,9 @@ function Home() {
     }, [ dispatch ]);
 
     return (
-
-
-        <div className='tile-list'>
-
-          {spots.map(spot =>
-              <SpotCard key={spot.id} spot={spot}></SpotCard>
-          )}
-
-        </div>
+        <Card items={spots} CardRef={SpotCard}></Card>
     );
 }
 
 
-export default Home;
+export default HomePage;
