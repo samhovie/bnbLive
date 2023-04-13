@@ -2,6 +2,7 @@
 import { csrfFetch } from './csrf';
 import normalize from '../utils';
 
+
 const LOAD_ALL = 'spots/all';
 const LOAD_ONE = 'spots/one';
 const LOAD_CURRENT = 'spots/current';
@@ -111,15 +112,24 @@ export const deleteOneSpot = (spot) => async (dispatch) => {
   return dispatch(deleteSpot(await response.json()));
 }
 
-export const updateOneSpot = (spot) => async (dispatch) => {
-  const response = await csrfFetch(`/api/spots/${spot.id}`, {
+export const updateOneSpot = (spot, spotId) => async (dispatch) => {
+  const response = await csrfFetch(`/api/spots/${spotId}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(spot)
   });
-  return dispatch(updateSpot(await response.json()));
+
+  if (response.ok) {
+    return dispatch(updateSpot(await response.json()));
+  }
+  else {
+    return false;
+  }
+
+
+
 }
 
 const spotsReducer = (state = initialState, action) => {

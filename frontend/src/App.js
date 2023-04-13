@@ -102,7 +102,7 @@ function App() {
               <HomePage />
             </Route>
             <Route exact path="/spots/new">
-              <SpotForm action={spotActions.createOneSpot}/>
+              <SpotForm type='create' action={spotActions.createOneSpot}/>
             </Route>
             <Route path="/spots/current">
               <ManageSpotsPage />
