@@ -2,8 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import * as spotActions from '../store/spots';
 import SpotCard from './SpotCard';
-// import { NavLink } from 'react-router-dom';
-// import './Home.css';
+import CardList from './CardList';
 function ManageSpotsPage() {
 
     const dispatch = useDispatch();
@@ -15,15 +14,7 @@ function ManageSpotsPage() {
 
     return (
 
-
-        <div className='tile-list'>
-
-          {spots.map(spot =>
-              <SpotCard manage={true} key={spot.id} item={spot}></SpotCard>
-          )}
-
-
-        </div>
+        <CardList type='update' items={spots} CardRef={SpotCard} />
     );
 }
 

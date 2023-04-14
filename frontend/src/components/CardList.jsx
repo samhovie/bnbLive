@@ -6,7 +6,7 @@ export default function CardList ({ type, items, CardRef }) {
 
         <div className={"flex flex-wrap justify-start list " + type} >
         {items.map(item =>
-            <CardRef  key={item.id} item={item}/>
+            <CardRef manage={type==='update'} key={item.id} item={item}/>
         )}
     </div>
     );

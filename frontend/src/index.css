@@ -195,6 +195,6 @@ h2 {
 .page {
     width: 1000px;
 }
-.page.create {
+.page.create, .page.update {
     max-width: 500px;
 }
