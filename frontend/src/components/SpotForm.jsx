@@ -144,6 +144,7 @@ function SpotForm({ type, action, values }) {
                         </p>
                     </div>
 
+<div className="flex-col">
                     <label htmlFor="description">Description:</label>
                     <input
                         id="description"
@@ -154,6 +155,7 @@ function SpotForm({ type, action, values }) {
                             values ? values.description : "Description"
                         }
                     />
+                    </div>
 
                     <h3>Create a title for your spot</h3>
                     <p>
@@ -161,6 +163,7 @@ function SpotForm({ type, action, values }) {
                         highlights what makes your place special.
                     </p>
 
+<div className="flex-col">
                     <label htmlFor="name"></label>
                     <input
                         id="name"
@@ -169,14 +172,16 @@ function SpotForm({ type, action, values }) {
                         value={name}
                         placeholder={values ? values.name : "Name of your spot"}
                     />
+                    </div>
 
-                    <h3>CSet a base price for your spot</h3>
+                    <h3>Set a base price for your spot</h3>
                     <p>
                         Competitive pricing can help your listing stand out and
                         rank higher in search results.
                     </p>
 
-                    <label htmlFor="price">Price:</label>
+<div className="flex">
+                    <label htmlFor="price">$</label>
                     <input
                         id="price"
                         type="text"
@@ -186,8 +191,11 @@ function SpotForm({ type, action, values }) {
                             values ? values.price : "Price per night (USD)"
                         }
                     />
+                    </div>
+
+
                     {type === "create" && (
-                        <>
+                        <div className="flex-col">
                             <h3>Liven up your spot with photos</h3>
                             <p>
                                 Submit a link to at least one photo to publish
@@ -237,7 +245,7 @@ function SpotForm({ type, action, values }) {
                                 value={photo4}
                                 placeholder="Image URL"
                             />
-                        </>
+                        </div>
                     )}
                 </div>
                 <button>

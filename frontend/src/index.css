@@ -104,7 +104,7 @@ div {
 }
 
 #main-title {
-    color: var(--platinum);
+     color:white;
     font-family: "Sedgwick", sans-serif;
     font-size: 28px;
 }
@@ -178,7 +178,9 @@ h2 {
 }
 
 .nav-link a {
-    color: var(--platinum);
+    /* color: var(--platinum);
+     */
+     color: white;
     font-size: 28px;
 }
 
@@ -197,4 +199,12 @@ h2 {
 }
 .page.create, .page.update {
     max-width: 500px;
+}
+
+h3 {
+    font-size: 22px;
+}
+
+#price {
+    width: 100%;
 }
