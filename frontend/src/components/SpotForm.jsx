@@ -72,27 +72,25 @@ function SpotForm({ type, action, values }) {
 
     return (
         <div className={"page " + type}>
-            {/* exclude, make CreateSpotPage and UpdateSpotPage outer components - similar thing w/ buttons? */}
-            <div>
-                <h2>
-                    {type === "create"
-                        ? "Create a New Spot"
-                        : "Update your Spot"}
-                </h2>
-            </div>
-
             <form onSubmit={onSubmit}>
-
-
                 <div>
-                <div>
-                    <h3>Where's your place located?</h3>
-                    <p>
-                        Guests will only get an exact address once they've
-                        booked a reservation
-                    </p>
-                </div>
                     <div>
+                        <h2>
+                            {type === "create"
+                                ? "Create a New Spot"
+                                : "Update your Spot"}
+                        </h2>
+                    </div>
+
+                    <div>
+                        <h3>Where's your place located?</h3>
+                        <p>
+                            Guests will only get an exact address once they've
+                            booked a reservation
+                        </p>
+                    </div>
+
+                    <div className="flex-col">
                         <label htmlFor="country">Country:</label>
                         <input
                             id="country"
@@ -103,7 +101,7 @@ function SpotForm({ type, action, values }) {
                         />
                     </div>
 
-                    <div>
+                    <div className="flex-col">
                         <label htmlFor="address">Street Address:</label>
                         <input
                             id="address"
@@ -113,27 +111,28 @@ function SpotForm({ type, action, values }) {
                             placeholder={values ? values.address : "Address"}
                         />
                     </div>
+                    <div className="flex">
+                        <div style={{flexGrow:'3'}}className="flex-col ">
+                            <label htmlFor="city">City:</label>
+                            <input
+                                id="city"
+                                type="text"
+                                onChange={(e) => setCity(e.target.value)}
+                                value={city}
+                                placeholder={values ? values.city : "City"}
+                            />
+                        </div>
 
-                    <div>
-                        <label htmlFor="city">City:</label>
-                        <input
-                            id="city"
-                            type="text"
-                            onChange={(e) => setCity(e.target.value)}
-                            value={city}
-                            placeholder={values ? values.city : "City"}
-                        />
-                    </div>
-
-                    <div>
-                        <label htmlFor="state">State:</label>
-                        <input
-                            id="state"
-                            type="text"
-                            onChange={(e) => setState(e.target.value)}
-                            value={state}
-                            placeholder={values ? values.state : "State"}
-                        />
+                        <div className="flex-col">
+                            <label htmlFor="state">State:</label>
+                            <input
+                                id="state"
+                                type="text"
+                                onChange={(e) => setState(e.target.value)}
+                                value={state}
+                                placeholder={values ? values.state : "State"}
+                            />
+                        </div>
                     </div>
 
                     <div>

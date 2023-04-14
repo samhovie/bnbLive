@@ -158,6 +158,12 @@ h2 {
     flex-direction: row;
 }
 
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+
 .flex-wrap {
     flex-wrap: wrap;
 }
@@ -183,15 +189,12 @@ h2 {
 .page h4 {
     font-size: 28px;
 }
-
 .page li h4 {
     font-size: 18px;
 }
 .page {
     width: 1000px;
 }
-
-
 .page.create {
     max-width: 500px;
 }
