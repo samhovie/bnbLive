@@ -190,3 +190,8 @@ h2 {
 .page {
     width: 1000px;
 }
+
+
+.page.create {
+    max-width: 500px;
+}

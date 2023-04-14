@@ -71,7 +71,7 @@ function SpotForm({ type, action, values }) {
     };
 
     return (
-        <div className="page">
+        <div className={"page " + type}>
             {/* exclude, make CreateSpotPage and UpdateSpotPage outer components - similar thing w/ buttons? */}
             <div>
                 <h2>
@@ -82,6 +82,9 @@ function SpotForm({ type, action, values }) {
             </div>
 
             <form onSubmit={onSubmit}>
+
+
+                <div>
                 <div>
                     <h3>Where's your place located?</h3>
                     <p>
@@ -89,8 +92,6 @@ function SpotForm({ type, action, values }) {
                         booked a reservation
                     </p>
                 </div>
-
-                <div>
                     <div>
                         <label htmlFor="country">Country:</label>
                         <input

@@ -37,7 +37,6 @@ function SpotPage() {
         );
     }
 
-    console.log(spot.SpotImages);
     useEffect(() => {
         dispatch(spotActions.loadOneSpot(spotId));
         dispatch(reviewActions.loadAllReviews(spotId));
