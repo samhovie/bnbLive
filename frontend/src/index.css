@@ -1,87 +1,121 @@
 :root {
     /* CSS HEX */
---rich-black: #0d1b2aff;
---oxford-blue: #1b263bff;
---yinmn-blue: #415a77ff;
---silver-lake-blue: #778da9ff;
---platinum: #e0e1ddff;
+    --rich-black: #0d1b2aff;
+    --oxford-blue: #1b263bff;
+    --yinmn-blue: #415a77ff;
+    --silver-lake-blue: #778da9ff;
+    --platinum: #e0e1ddff;
 
-
---light-cyan: #e0fbfcff;
---light-blue: #c2dfe3ff;
---cadet-gray: #9db4c0ff;
---paynes-gray: #5c6b73ff;
---gunmetal: #253237ff;
+    --light-cyan: #e0fbfcff;
+    --light-blue: #c2dfe3ff;
+    --cadet-gray: #9db4c0ff;
+    --paynes-gray: #5c6b73ff;
+    --gunmetal: #253237ff;
 }
 
 .navigation-container {
-    background-color: var(--yinmn-blue)
+    background-color: var(--yinmn-blue);
 }
 body {
-	line-height: 1;
+    line-height: 1;
     background-color: var(--platinum);
 }
 
-
-
-html, body, div, span,
-h1, h2, h3, h4, h5, h6, p, a, address, img,
-small, strong, sub, sup,
-ol, ul, li, form, label,
-canvas, nav, section {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+address,
+img,
+small,
+strong,
+sub,
+sup,
+ol,
+ul,
+li,
+form,
+label,
+canvas,
+nav,
+section {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
 
 .page {
     padding-top: 120px;
 }
 
-
-ol, ul {
-	list-style: none;
+ol,
+ul {
+    list-style: none;
 }
-
 
 #root {
     display: flex;
     justify-content: center;
     padding-top: 100px;
-
+    width: 100%;
 }
 
-
-img {
+img.home-img {
     width: 280px;
     height: 260px;
     object-fit: cover;
     border-radius: 10px;
 }
 
+div.detail-img, img.detail-img {
+    width: 230px;
+    height: 220px;
+}
+div.detail-img {
+    margin: 3px 0;
+}
+
+img.detail-img {
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+div.detail-img:first-child img, div.detail-img:first-child {
+    width: 445px;
+    height: 445px;
+}
+
+
+h2,
+h3,
+div {
+    font-family: "Dongle", sans-serif;
+}
+
+#main-title {
+    color: var(--platinum);
+    font-family: "Sedgwick", sans-serif;
+    font-size: 28px;
+}
+
 a:link {
-
     text-decoration: none;
-
 }
 
 h2 {
     color: black;
 }
-
-div {
-	border: 1px sol
-
-	id red;
-}
-
-.page-container {
-	margin-top: 120px;
-}
-
 
 #modal-container {
     position: fixed;
@@ -108,18 +142,51 @@ div {
     z-index: 3;
 }
 
-
 .card {
     width: 300px;
     height: 410px;
 }
 
-.tile-list {
+.list {
+    margin-top: 40px;
+
+    max-width: 915px;
+}
+
+.flex {
     display: flex;
     flex-direction: row;
+}
+
+.flex-wrap {
     flex-wrap: wrap;
+}
+
+.justify-start {
     justify-content: flex-start;
-    /* position: relative; */
-    margin-top: 110px;
-    max-width: 1200px;
+}
+
+.list.detail {
+    flex-direction: column;
+    max-height: 580px;
+}
+
+.nav-link a {
+    color: var(--platinum);
+    font-size: 28px;
+}
+
+.page h2 {
+    font-size: 32px;
+}
+
+.page h4 {
+    font-size: 28px;
+}
+
+.page li h4 {
+    font-size: 18px;
+}
+.page {
+    width: 1000px;
 }

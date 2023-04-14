@@ -1,10 +1,10 @@
 import React from "react";
 
-export default function CardList ({ items, CardRef }) {
+export default function CardList ({ type, items, CardRef }) {
 
     return (
 
-        <div className="tile-list">
+        <div className={"flex flex-wrap justify-start list " + type} >
         {items.map(item =>
             <CardRef  key={item.id} item={item}/>
         )}

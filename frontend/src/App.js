@@ -95,6 +95,7 @@ function App() {
   return (
     <>
       <ModalProvider>
+      {/* <HomePage /> */}
         <Navigation isLoaded={isLoaded} />
         {isLoaded && (
           <Switch>

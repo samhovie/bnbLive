@@ -3,24 +3,8 @@ import { ModalBtn } from "../App";
 import { NavLink } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 
-// give
-
 function SpotCard({ item, manage }) {
     const history = useHistory();
-
-    // const manageButtons = (
-    //     <div>
-    //         {/* <smallButton />
-    //         <smallButton /> */}
-    //     </div>
-    // );
-
-//     const components = [<img src={spot.previewImage} alt={spot.name}></img>,
-//     <h2>{spot.city + ', ' + spot.state}</h2>,                 <div>
-//     <i className="fa-solid fa-star"></i>
-//     <p className='avg-rating'>{Boolean(spot.avgRating) ? spot.avgRating : '#.#'}</p>
-// </div>, <p>{spot.price + ' night'}</p> ]
-// return <Card items={components}></Card>
 
     return (
         <div className='container card'>
@@ -28,8 +12,8 @@ function SpotCard({ item, manage }) {
             <NavLink key={item.id} to={`/spots/${item.id}`}>
 
 
-            <div className='card-img container'>
-                <img src={item.previewImage} alt={item.name}></img>
+            <div className='home-img container'>
+                <img className='home-img' src={item.previewImage} alt={item.name}></img>
             </div>
 
             <div>
@@ -50,7 +34,6 @@ function SpotCard({ item, manage }) {
 
             </NavLink>
 
-            {/* {manage && manageButtons} */}
             {manage && <div style={{display:'flex'}}>
                 <ModalBtn spot={item} type={'delete_spot'}>
                     </ModalBtn>

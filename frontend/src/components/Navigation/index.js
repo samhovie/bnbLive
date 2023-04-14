@@ -45,13 +45,13 @@ function Navigation({ isLoaded }) {
           </div>
 
           <div className="flex-ctr">
-            <h1>bnbLive</h1>
+            <h1 id='main-title'>bnbLive</h1>
           </div>
         </NavLink>
       </div>
 
       <div className="flex-sb nav-item ">
-        <div style={{padding:'0 35px'}}>
+        <div className="nav-link" style={{padding:'0 35px'}}>
           <NavLink to={`/spots/new`}>Create a Spot</NavLink>
         </div>
 
