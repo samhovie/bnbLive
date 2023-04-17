@@ -208,3 +208,10 @@ h3 {
 #price {
     width: 100%;
 }
+
+#yesDelRevBtn, #yesDelSpotBtn {
+    background-color: rgb(255, 134, 134);
+}
+#noDelRevBtn, #noDelSpotBtn {
+    background-color: darkgray;
+}

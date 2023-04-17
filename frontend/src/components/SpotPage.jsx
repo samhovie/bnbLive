@@ -84,7 +84,8 @@ function SpotPage() {
                     <ModalBtn type={"post_review"} spot={spot}></ModalBtn>
                 )}
 
-            <ReviewList reviews={reviews}></ReviewList>
+            {reviews.length > 0 ? <ReviewList reviews={reviews}></ReviewList> : <h6>Be the first to post a review!</h6>}
+
         </div>
     );
 }

@@ -36,7 +36,10 @@ function ReserveButton({ avgStarRating, numReviews, price }) {
             </div>
 
             <div>
-                <button>Reserve</button>
+                <button onClick={(e) => {
+                    e.preventDefault();
+                    alert('Feature coming soon')
+                }}>Reserve</button>
             </div>
 
         </div>

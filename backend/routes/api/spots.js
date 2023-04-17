@@ -169,7 +169,7 @@ router.get(
                 spot.dataValues.avgRating =
                 Number.parseFloat(reviews.dataValues.avgRating).toFixed(1);
             } else {
-                spot.dataValues.avgRating = 'No ratings yet'
+                spot.dataValues.avgRating = 'New'
             }
 
             let spotImage = await SpotImage.findOne({
@@ -235,7 +235,7 @@ router.get(
                 spot.dataValues.avgRating =
                 Number.parseFloat(reviews.dataValues.avgRating).toFixed(1);
             } else {
-                spot.dataValues.avgRating = 'No ratings yet'
+                spot.dataValues.avgRating = 'New'
             }
 
 

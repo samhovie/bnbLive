@@ -152,7 +152,7 @@ function SpotForm({ type, action, values }) {
                         onChange={(e) => setDescription(e.target.value)}
                         value={description}
                         placeholder={
-                            values ? values.description : "Description"
+                            values ? values.description : "Please write at least 30 characters"
                         }
                     />
                     </div>
