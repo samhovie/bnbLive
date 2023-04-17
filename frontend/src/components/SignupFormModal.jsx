@@ -58,8 +58,9 @@ function SignupFormModal() {
 
   return (
     <>
-      <h1>Sign Up</h1>
+
       <form onSubmit={handleSubmit}>
+      <h1>Sign Up</h1>
         { (<ul>
           {Object.values(errors)?.map((error, idx) => <li key={idx}>{error}</li>)}
         </ul>)}

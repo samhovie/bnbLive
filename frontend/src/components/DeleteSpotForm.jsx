@@ -45,6 +45,10 @@ function DeleteSpotForm({spot}) {
                 type="submit"
                 id="noDelSpotBtn"
                 // disabled={true}
+                onClick={(e) => {
+                    e.preventDefault();
+                    handleModal();
+                }}
                 > No &#40;Keep Spot&#41;
                 </button>
             </div>

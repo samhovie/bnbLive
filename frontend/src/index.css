@@ -215,3 +215,20 @@ h3 {
 #noDelRevBtn, #noDelSpotBtn {
     background-color: darkgray;
 }
+
+#modal-content form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px
+
+}
+
+#modal-content h1 {
+font-size: 22px;
+align-self: center;
+padding-bottom: 10px;
+}
+
+#modal-content input {
+    width: 100%;
+    }
