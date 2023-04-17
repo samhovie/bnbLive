@@ -16,7 +16,7 @@ function SpotCard({ item, manage }) {
                 <img className='home-img' src={item.previewImage} alt={item.name}></img>
             </div>
 
-            <div>
+            <div style={{display: 'flex', justifyContent: 'space-between'}}>
                 <div>
                     <h2>{item.city + ', ' + item.state}</h2>
                 </div>

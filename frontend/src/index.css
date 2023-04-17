@@ -78,6 +78,13 @@ img.home-img {
     border-radius: 10px;
 }
 
+/* div.home-img {
+    width: 260px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 10px;
+} */
+
 div.detail-img, img.detail-img {
     width: 230px;
     height: 220px;
@@ -231,4 +238,8 @@ padding-bottom: 10px;
 
 #modal-content input {
     width: 100%;
+    }
+
+    .avg-rating {
+        padding-right: 18px;
     }
