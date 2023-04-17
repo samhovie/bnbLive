@@ -37,12 +37,6 @@ function SignupFormModal() {
     if (password === confirmPassword) {
       setErrors({});
       setHasSubmitted(false);
-      // return dispatch(sessionActions.signup({ email, username, firstName, lastName, password }))
-      //   .then(closeModal)
-      //   .catch(async (res) => {
-      //     const data = await res.json();
-      //     if (data && data.errors) setErrors(data.errors);
-      //   });
 
       await dispatch(sessionActions.signup({ email, username, firstName, lastName, password }))
       .then(closeModal)
