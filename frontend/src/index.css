@@ -107,12 +107,12 @@ div.detail-img:first-child img, div.detail-img:first-child {
 h2,
 h3,
 div {
-    font-family: "Dongle", sans-serif;
+    font-family: sans-serif;
 }
 
 #main-title {
      color:white;
-    font-family: "Sedgwick", sans-serif;
+    font-family: sans-serif;
     font-size: 28px;
 }
 
