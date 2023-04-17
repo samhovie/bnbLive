@@ -12,7 +12,7 @@ import ReactDOM from "react-dom";
 import PostReviewForm from "./components/PostReviewForm";
 import DeleteSpotForm from "./components/DeleteSpotForm";
 import UpdateSpotPage from "./components/UpdateSpotPage";
-import DeleteReviewForm from "./components/DeletereviewForm";
+import DeleteReviewForm from "./components/DeleteReviewForm";
 // import SpotCard from "./components/SpotCard";
 import ManageSpotsPage from './components/ManageSpotsPage'
 
