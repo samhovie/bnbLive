@@ -14,7 +14,11 @@ function ManageSpotsPage() {
 
     return (
 
+
+
+
         <CardList type='update' items={spots} CardRef={SpotCard} />
+
     );
 }
 
