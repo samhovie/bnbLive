@@ -9,7 +9,7 @@ function ReserveButton({ avgStarRating, numReviews, price }) {
         <div>
             <i className="fa-solid fa-star"></i>
             <p>{avgStarRating}</p>
-            <p>{numReviews + ' ' + reviewPlural}</p>
+            {numReviews > 0 && <p>{numReviews + ' · ' + reviewPlural}</p>}
         </div>
         );
     } else {

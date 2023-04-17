@@ -25,7 +25,9 @@ function SpotPage() {
             <div>
                 <i className="fa-solid fa-star"></i>
                 <p>{spot.avgStarRating}</p>
-                <p>{spot.numReviews + " " + reviewPlural}</p>
+                {spot.numReviews > 0 && (
+                    <p>{spot.numReviews + " · " + reviewPlural}</p>
+                )}
             </div>
         );
     } else {
@@ -43,7 +45,7 @@ function SpotPage() {
     }, [dispatch, spotId]);
 
     const ImageCard = ({ item }) => {
-      // let main = {}
+        // let main = {}
         return (
             <div className="detail-img" key={item.id}>
                 <img className="detail-img " src={item.url} alt=""></img>
@@ -60,7 +62,11 @@ function SpotPage() {
                 <p>{spot.city + ", " + spot.state + ", " + spot.country}</p>
             </div>
 
-            <CardList type='detail' items={Object.values(spot.SpotImages)} CardRef={ImageCard} />
+            <CardList
+                type="detail"
+                items={Object.values(spot.SpotImages)}
+                CardRef={ImageCard}
+            />
 
             <div>
                 <div>
@@ -84,8 +90,11 @@ function SpotPage() {
                     <ModalBtn type={"post_review"} spot={spot}></ModalBtn>
                 )}
 
-            {reviews.length > 0 ? <ReviewList reviews={reviews}></ReviewList> : <h6>Be the first to post a review!</h6>}
-
+            {reviews.length > 0 ? (
+                <ReviewList reviews={reviews}></ReviewList>
+            ) : (
+                <h6>Be the first to post a review!</h6>
+            )}
         </div>
     );
 }
