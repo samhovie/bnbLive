@@ -80,9 +80,18 @@ Edit a spot
 Delete a spot  
 ```DELETE /api/spots/:id```  
 
-
-
-
+### Reveiws
+Reviews of current user  
+```GET /api/reviews/current```  
+Reviews by spot id  
+```GET /api/spots/:id/reviews```  
+Create review  
+```POST /api/spots/:id/reviews```  
+Edit review  
+```PUT /api/spots/:id/reviews```  
+Delete review  
+```DELETE /api/spots/:id/reviews```  
 
 
 ## Contact Info
+https://www.linkedin.com/in/samhovie/
