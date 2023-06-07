@@ -67,18 +67,19 @@ Logged in Users can
 
 ## Backend Routes
 ### Spots
-All spots
-GET /api/spots
-Spots of current user 
-GET /api/spots/current
-Spot by id
-GET /api/spots/:id
-Create a spot 
-POST /api/spots/
-Edit a spot 
-PUT /api/spots/:id
-Delete a spot
-DELETE /api/spots/:id
+All spots  
+```GET /api/spots```  
+Spots of current user   
+```GET /api/spots/current```  
+Spot by id  
+```GET /api/spots/:id```  
+Create a spot  
+```POST /api/spots/```  
+Edit a spot  
+```PUT /api/spots/:id```  
+Delete a spot  
+```DELETE /api/spots/:id```  
+
 
 
 
